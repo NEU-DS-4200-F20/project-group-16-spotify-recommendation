@@ -12,4 +12,47 @@ function table() {
         right: 30,
         bottom: 20
       },
-     
+      width = 500 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
+      xValue = d => d[0],
+      yValue = d => d[1],
+      xScale = d3.scaleLinear(),
+      yScale = d3.scaleLinear(),
+      selectableElements = d3.select(null),
+      dispatcher;
+
+    // Create the chart by adding an svg to the div with the id 
+    // specified by the selector using the given data
+    function chart(selector, data) {
+
+        //sets table properties
+        let columns = ['name', 'artist', 'album']
+        let table = d3.select(selector).append('table')
+		let thead = table.append('thead')
+        let	tbody = table.append('tbody');
+        
+        thead.append('tr')
+		  .selectAll('th')
+		  .data(columns).enter()
+		  .append('th')
+            .text(function (column) { return column; });
+
+        // creates the rows for tables
+            var rows = tbody.selectAll('tr')
+        .data(data)
+        .enter()
+        .append('tr');
+
+      var cells = rows.selectAll('td')
+        .data(function (row) {
+          return columns.map(function (column) {
+            return {column: column, value: row[column]};
+          });
+        })
+        .enter()
+        .append('td')
+          .text(function (d) { return d.value; });
+          
+          return chart;
+    };
+}
