@@ -4,7 +4,7 @@
 // current list of preset moods are {happy, chill, gloomy, bops, dance, study} **subject to change**
 // Partner working on this : John Barber
 function piecharts() {
-    var width = 960, height = 500, radius = Math.min(width,height) / 2;
+    var width = 300, height = 300, radius = Math.min(width,height) / 2;
 
     var pie = d3.pie()
     .sort(null)
@@ -30,7 +30,7 @@ function piecharts() {
             .outerRadius(radius);
         
         const colorScale = d3.scaleOrdinal()
-            .range(['#bfa5ff', '#8884ff', '#83caff', '#81ffe2', ]);
+            .range(['#f4d06f', '#372554', '#4b88a2', '#d81e5b', '#d66853']);
 
         const path = svg.selectAll('path')
             .data(pie(data))

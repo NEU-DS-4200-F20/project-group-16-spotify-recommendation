@@ -11,5 +11,6 @@ function table() {
         left: 50,
         right: 30,
         bottom: 20
-      },
+      }
+    }
      

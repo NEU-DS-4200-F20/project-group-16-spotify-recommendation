@@ -21,10 +21,10 @@ function eval(data) {
                     {mood: "study", tracks: 0}];
 
     data.forEach(element => {
-        if (parseFloat(element.energy) > .7 && parseFloat(element.valence) > .7 && parseFloat(element.danceability) > .5) {
+        if (parseFloat(element.energy) > .6 && parseFloat(element.valence) > .6 && parseFloat(element.danceability) > .5) {
             result[0].tracks += 1;
         }
-        if (parseFloat(element.energy) < .7 && parseFloat(element.valence) < .5 && parseFloat(element.danceability) < .7) {
+        if (parseFloat(element.energy) < .5 && parseFloat(element.valence) < .5 && parseFloat(element.danceability) < .5) {
             result[1].tracks += 1;
         }
         if (parseFloat(element.popularity) > 80 && parseFloat(element.valence) > .6) {
