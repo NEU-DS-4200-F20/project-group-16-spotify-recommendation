@@ -6,5 +6,9 @@
     //add stuff here
     //also need to figure out how to add all 4 data sources. 
     //or combine data source into 1 cvs?
+
+    let john_liked_songs_pie = piecharts();
+
+
   })
 })());

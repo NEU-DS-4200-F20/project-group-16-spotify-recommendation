@@ -43,7 +43,8 @@
     
     <h1>Abstract</h1>
     
-    <p>Replace with your paper abstract.</p>
+    <p>Our project is focused on working with ndoherty.design to work with their PlaylistNinja web app and help create visualizations to display user data. The overall project will consist of taking into account certain user metrics for personal music tastes (such as danceability, energy, valence, tempo, popularity, etc.), visualizing them in an easy to read graphic, and providing them with similar artists and tracks that match their preferences. The idea behind this is to work off Spotify’s already existing algorithm of selecting new music for their users, but to add a new element of allowing people to see the trends in their saved songs and find similar ones with more ease.
+    </p>
 
     
     <h1>Visualization</h1>
@@ -57,7 +58,7 @@
   <div class='vis-holder'>
     <!-- Change viewbox to whatever you want, e.g., '0 0 1000 6000' This determines your aspect ratio and coordinate system -->    
     <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <svg id='vis-svg-1'
+    <!-- <svg id='vis-svg-1'
       preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 1000 1000' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
       
       
@@ -65,10 +66,14 @@
       <text x='70%' y='35%' text-anchor='middle'>B</text>
       <rect x='20%' y='40%' width='20%' height='20%' fill='yellow'></rect>
       <circle cx='70%' cy='50%' r='10%' fill='blue'></circle>
-      
+       -->
       
     <!-- Don't delete the closing tag! -->
-    </svg>
+    <!-- </svg> -->
+    <div class='piechart-holder' id='piecharts'></div>
+
+
+
   </div>
   
   <!-- Further writeup -->
@@ -109,5 +114,9 @@
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src='lib/d3.v6.1.1/d3.min.js'></script>
   <script src='js/visualization.js'></script>
+  <script src='js/piecharts.js'></script>
+  <script src='js/table.js'></script>
+  <script src='js/radarmap.js'></script>
+  <script src='js/moodevaluation.js'></script>
 </body>
 </html>
