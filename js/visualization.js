@@ -10,5 +10,8 @@
     let tblAllData = table()
     //.selectionDispatcher(d3.dispatch(dispatchString))
     ('#table', data);
+
+    let john_liked_songs_pie = piecharts();
+
   })
 })());
