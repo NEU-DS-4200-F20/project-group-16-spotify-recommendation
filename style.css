@@ -16,12 +16,30 @@ h1, h2, h3 {
 }
 
 /* But your visualization should be full-width and full-height */
-.vis-holder {
+.piechart-holder {
   width: 100%;
   height: 100%;
   text-align: center;
   margin: auto;
 }
+
+.piechartlegend-holder {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+
+.piechartlegend {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+
+
 
 .vis-svg {
   background-color: #f4f1f0;

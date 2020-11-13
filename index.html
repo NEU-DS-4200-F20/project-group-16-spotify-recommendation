@@ -6,7 +6,7 @@
   <meta charset='utf-8'>
 
   <!-- Title -->
-  <title>Project Team ##: Topic, DS 4200 F20</title>
+  <title>Project Team 16: Spotify Music Mood Recommendation</title>
   
   <!-- CSS Styling -->
   <link rel='stylesheet' href='style.css'>
@@ -26,13 +26,13 @@
 <body>
 
   <!-- Update this with your GitHub repo URL -->
-  <span id='forkongithub'><a href='https://github.com/NEU-DS-4200-F20-Staff/Project'>Fork me on GitHub</a></span>
+  <span id='forkongithub'><a href='https://github.com/NEU-DS-4200-F20/project-group-16-spotify-recommendation'>Fork me on GitHub</a></span>
 
   <!-- Writeup -->
   <div class='content-column'>
-   <h1>Project Team ##: Topic, DS4200 F20</h1>
+   <h1>Project Team 16: Spotify Music Mood Recommendation</h1>
     
-    <p><strong>Student One</strong>, <strong>Student Two</strong>, <strong>Student Three</strong></p>
+    <p><strong>John Barber</strong>, <strong>Aditi Lohe</strong>, <strong>Keshav Sharma</strong></p>
     
     <p>Service-Learning Course Project as part of
 	<a href='https://canvas.instructure.com/courses/1781732'>DS 4200 F20: Information Visualization</a>, 
@@ -60,19 +60,32 @@
     
   </div>
   
+
   <!-- Visualization goes here -->
-  <div class='vis-holder'>
+
+
+  <div class='table-holder'>
+    <!-- Aditi's stuff goes here -->
+  </div>
+  
+  <div class='radarmap-holder'>
+    <!-- Keshav's stuff goes here -->
+  </div>
+
+  <div class='piechart-holder'>
+    <h1> John's Playlist Breakdown</h1>
     <!-- Change viewbox to whatever you want, e.g., '0 0 1000 6000' This determines your aspect ratio and coordinate system -->    
     <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <h1> John's Liked Songs Playlist by Mood</h1>
-    <svg id='piecharts' width = 400 height = 400> </svg>
-    <svg id='piechartlegend' width = 300 height = 450></svg>
+    <svg id='piechartLiked' viewbox=0,0,300,300 height=300 width=300> </svg>
+    <svg id='piechartHosting' viewbox=0,0,300,300 height=300 width=300> </svg>
+    <svg id='piechartAlternative' viewbox=0,0,300,300 height=300 width=300> </svg>
+    <svg id='piechartAccoustic' viewbox=0,0,300,300 height=300 width=300> </svg>
     <!-- <div class='piechart-holder' id='piecharts'></div> -->
     <!-- <div class='piechartlegend-holder' id='piechartlegend'></div> -->
+  </div>
 
-
-
-
+  <div class='piechartlegend-holder'>
+    <svg id='piechartLegend' height=100 width=700></svg>
   </div>
   
   <!-- Further writeup -->
@@ -114,7 +127,10 @@
   <script src='lib/d3.v6.1.1/d3.min.js'></script>
   <script src='js/piechartlegend.js'></script>
   <script src='js/visualization.js'></script>
-  <script src='js/piecharts.js'></script>
+  <script src='js/piechartLiked.js'></script>
+  <script src='js/piechartHosting.js'></script>
+  <script src='js/piechartAlternative.js'></script>
+  <script src='js/piechartAccoustic.js'></script>
   <script src='js/table.js'></script>
   <script src='js/radarmap.js'></script>
   <script src='js/moodevaluation.js'></script>
