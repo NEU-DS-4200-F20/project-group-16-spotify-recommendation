@@ -7,7 +7,7 @@
     //also need to figure out how to add all 4 data sources. 
     //or combine data source into 1 cvs?
 
-    let tblAllData = table()
+    let john_liked_songs_table = table()
     //.selectionDispatcher(d3.dispatch(dispatchString))
     ('#table', data);
 

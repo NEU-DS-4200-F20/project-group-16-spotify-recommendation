@@ -2,8 +2,7 @@
 // it will show a set amount of rows, with column headers {name, artist, album}
 // we want to make this scrollable since theres a chance for a lot of data.  That we cant all show in one view
 // eventually will connect this to other charts via brushing and linking
-// Partner working on this : Aditi 
-
+// Partner working on this : Aditi Lohe
 function table() {
 
     let margin = {
