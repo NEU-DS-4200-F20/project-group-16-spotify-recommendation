@@ -55,3 +55,4 @@ function table() {
           return chart;
     };
 }
+

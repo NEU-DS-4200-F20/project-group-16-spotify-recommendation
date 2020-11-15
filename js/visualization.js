@@ -11,6 +11,12 @@
     //.selectionDispatcher(d3.dispatch(dispatchString))
     ('#table', data);
 
+    let john_piechartlegend = piechartLegend();
+    let john_piechartLiked = piechartLiked();
+    let john_piechartHosting = piechartHosting();
+    let john_piechartAlternative = piechartAlternative();
+    let john_piechartAccoustic = piechartAccoustic();
+
     let john_liked_songs_pie = piecharts();
 
   })

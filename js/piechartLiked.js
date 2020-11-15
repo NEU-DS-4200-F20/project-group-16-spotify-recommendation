@@ -3,18 +3,28 @@
 // here we will need preset models for each mood we could like to showcase
 // current list of preset moods are {happy, chill, gloomy, bops, dance, study} **subject to change**
 // Partner working on this : John Barber
-function piecharts() {
-    var width = 960, height = 500, radius = Math.min(width,height) / 2;
+function piechartLiked() {
+
+    let margin = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    },
+    width = 300 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom,
+    radius = Math.min(width,height) / 2 - 20;
 
     var pie = d3.pie()
     .sort(null)
     .value(function(d) {return d.value; });
 
-    var svg = d3.select("#piecharts").append("svg")
+    var svg = d3.select("#piechartLiked").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
 
     d3.csv("/data/john_liked_songs.csv").then(function(csvData) {
 
@@ -30,7 +40,7 @@ function piecharts() {
             .outerRadius(radius);
         
         const colorScale = d3.scaleOrdinal()
-            .range(['#bfa5ff', '#8884ff', '#83caff', '#81ffe2', ]);
+            .range(['#f4d06f', '#372554', '#4b88a2', '#d81e5b', '#d66853']);
 
         const path = svg.selectAll('path')
             .data(pie(data))
@@ -38,6 +48,16 @@ function piecharts() {
             .append('path')
             .attr('d', arc)
             .style('fill', (d, i) => colorScale(i))
+        
+        svg.append("text")
+            .attr("x", 0)             
+            .attr("y", height / 2 - 5)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "16px") 
+            .style("font-weight", "bold")
+            .text("Liked Songs");
+            
+            
             
 
 
