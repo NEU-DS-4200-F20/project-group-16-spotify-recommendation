@@ -16,6 +16,10 @@
     let john_piechartHosting = piechartHosting();
     let john_piechartAlternative = piechartAlternative();
     let john_piechartAccoustic = piechartAccoustic();
+    
+    //THIS IS TEST CODE - keshav
+    let keshav_meanPieTest = meanPieTest();
+    let keshav_meanPieLegend = testLegend();
 
     let john_liked_songs_pie = piecharts();
 
