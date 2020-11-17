@@ -5,16 +5,6 @@
 // without brushing and linking this should show the default average of the tracks within john_liked_songs.csv
 // Partner working on this : Keshav Sharma
 
-function radarmapLiked() {
-
-  //adding svg similar to John's code
-    var svg = d3.select("#radarmapLiked").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-
-
     //code from hereon is the same as on http://bl.ocks.org/nbremer/6506614 in radarchart.js
     var RadarChart = {
         draw: function(id, d, options){
@@ -33,7 +23,7 @@ function radarmapLiked() {
            TranslateY: 30,
            ExtraWidthX: 100,
            ExtraWidthY: 100,
-           color: d3.scale.category10()
+           color: d3.scaleOrdinal(d3.schemeCategory10)
           };
           
           if('undefined' !== typeof options){
@@ -227,4 +217,3 @@ function radarmapLiked() {
                      .style('font-size', '13px');
         }
     };
-};

@@ -14,8 +14,7 @@
     let john_piechartAccoustic = piechartAccoustic();
     
     //THIS IS TEST CODE - keshav
-    let keshav_meanPieTest = meanPieTest();
-    let keshav_meanPieLegend = testLegend();
+
 
 
   })
