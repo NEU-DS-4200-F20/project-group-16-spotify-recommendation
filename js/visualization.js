@@ -7,7 +7,7 @@
     //also need to figure out how to add all 4 data sources. 
     //or combine data source into 1 cvs?
 
-    //let john_liked_songs_table = table()
+    let aditi_liked_songs_table = table();
     //.selectionDispatcher(d3.dispatch(dispatchString))
    // ('#table', data);
 
@@ -18,10 +18,10 @@
     let john_piechartAccoustic = piechartAccoustic();
     
     //THIS IS TEST CODE - keshav
-    let keshav_meanPieTest = meanPieTest();
-    let keshav_meanPieLegend = testLegend();
+    //let keshav_meanPieTest = meanPieTest();
+    //let keshav_meanPieLegend = testLegend();
 
-    let john_liked_songs_pie = piecharts();
+    //let john_liked_songs_pie = piecharts();
 
   })
 })());

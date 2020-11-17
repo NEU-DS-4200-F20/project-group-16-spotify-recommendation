@@ -16,9 +16,7 @@ function table() {
       xValue = d => d[0],
       yValue = d => d[1],
       xScale = d3.scaleLinear(),
-      yScale = d3.scaleLinear(),
-      selectableElements = d3.select(null),
-      dispatcher;
+      yScale = d3.scaleLinear();
 
     // Create the chart by adding an svg to the div with the id 
     // specified by the selector using the given data
@@ -27,22 +25,28 @@ function table() {
         //sets table properties
         let columns = ['name', 'artist', 'album']
         let table = d3.select(selector).append('table')
-		let thead = table.append('thead')
+        let thead = table.append('thead')
         let	tbody = table.append('tbody');
+
+        var svg = d3.select("#table").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
         
         thead.append('tr')
-		  .selectAll('th')
-		  .data(columns).enter()
-		  .append('th')
-            .text(function (column) { return column; });
+        .selectAll('th')
+        .data(columns).enter()
+        .append('th')
+        .text(function (column) { return column; });
 
         // creates the rows for tables
-            var rows = tbody.selectAll('tr')
+        var rows = tbody.selectAll('tr')
         .data(data)
         .enter()
         .append('tr');
-
-      var cells = rows.selectAll('td')
+        
+        var cells = rows.selectAll('td')
         .data(function (row) {
           return columns.map(function (column) {
             return {column: column, value: row[column]};
@@ -50,9 +54,16 @@ function table() {
         })
         .enter()
         .append('td')
-          .text(function (d) { return d.value; });
-          
-          return chart;
-    };
-}
+        .text(function (d) { return d.value; });
+
+        d3.csv("/data/john_liked_songs.csv").then(function(csvData) {
+
+          var data = eval(csvData);
+  
+          console.log(data);
+        
+        return chart;
+      });
+    }
+  }
 
