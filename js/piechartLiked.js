@@ -26,7 +26,7 @@ function piechartLiked() {
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
 
 
-    d3.csv("/data/john_liked_songs.csv").then(function(csvData) {
+    d3.csv("data/john_liked_songs.csv").then(function(csvData) {
 
         var data = eval(csvData);
 

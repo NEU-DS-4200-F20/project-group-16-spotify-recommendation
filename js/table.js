@@ -51,7 +51,7 @@ function table() {
   let tbody = table.append('tbody')//.call(scrollEvent);
 
 
-  d3.csv("/data/john_liked_songs.csv").then(function (data) {
+  d3.csv("data/john_liked_songs.csv").then(function (data) {
 
     console.log(data);
 
