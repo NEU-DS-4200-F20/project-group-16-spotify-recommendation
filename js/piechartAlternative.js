@@ -20,7 +20,7 @@ function piechartAlternative() {
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    d3.csv("/project-group-16-spotify-recommendation/data/john_alt_2020.csv").then(function(csvData) {
+    d3.csv("/data/john_alt_2020.csv").then(function(csvData) {
 
         var data = eval(csvData);
 
