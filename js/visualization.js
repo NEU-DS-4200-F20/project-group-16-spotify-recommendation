@@ -18,12 +18,6 @@
     let john_piechartAccoustic = piechartAccoustic();
     
     //THIS IS TEST CODE - keshav
-<<<<<<< HEAD
-
-=======
-    //let keshav_meanPieTest = meanPieTest();
-    //let keshav_meanPieLegend = testLegend();
->>>>>>> e934bc71c1e203c1154015fe347ca17c6595d31a
 
     //let john_liked_songs_pie = piecharts();
 
