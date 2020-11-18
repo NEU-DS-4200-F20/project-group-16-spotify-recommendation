@@ -10,17 +10,7 @@ function table() {
     left: 50,
     right: 30,
     bottom: 20
-  };//,
-    // width = 500 - margin.left - margin.right,
-    // height = 500 - margin.top - margin.bottom,
-    // xValue = d => d[0],
-    // yValue = d => d[1],
-    // xScale = d3.scaleLinear(),
-    // yScale = d3.scaleLinear();
-
-  // Create the chart by adding an svg to the div with the id 
-  // specified by the selector using the given data
-  // function chart(selector, data) {
+  };
 
   // var container = d3.select('svg');//.append("table")
   //.attr("id", "scrollbar");
@@ -32,11 +22,6 @@ function table() {
 
 
   // var svg = d3.select('svg');
-
-  // .attr("width", width)
-  // .attr("height", height);
-  //.append("g")
-  //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
   //var table = svg.append('table');
 
@@ -80,7 +65,7 @@ function table() {
     .append('th')
     .style("border-collapse", "collapse")
     .style("padding", "6px")
-    .style("border", "1px lightgrey solid")
+   // .style("border", "1px lightgrey solid")
     .text(function (column) { return column; });
 
     //updateTable();
@@ -145,4 +130,3 @@ function table() {
   //     .style("border", "1px lightgrey solid");
   // }
 }
-    //return chart;

@@ -39,14 +39,75 @@ h1, h2, h3 {
 	display: block;
 }
 
-.table-holder {
+/* .table-holder {
 	height: 400px;
 	width: 800px;
 	text-align: center;
 	margin: auto;
 	display: block;
 	overflow-y: scroll;
-	overflow-x: visible;
+	overflow-x: visible; 
+}
+
+.table-holder tbody{
+	display: block;
+	overflow: auto;
+	text-align: center;
+	margin: auto;
+	height: 400px;
+	width: 800px;
+  }
+
+  .ftable-holder thead tr{
+	display: block;
+  } */
+
+.table-holder {
+	height: 450px;
+	width: 800px;
+	table-layout: fixed;
+	display: block;
+	margin: auto;
+	text-align: center;
+    border-collapse: collapse;
+}
+
+.table-holder tbody{
+  display: block;
+  width: 800px;
+  overflow: auto;
+  text-align: center;
+  height: 400px;
+  margin: auto;
+}
+
+.table-holder thead tr {
+   display: block;
+   width: 800px;
+   text-align: center;
+   margin: auto;
+}
+
+.table-holder thead {
+  background: #DEECEF;
+  /* text-align: center; */
+  width: 800px;
+  color:#333;
+  margin: auto;
+  text-align: center;
+}
+
+.table-holder th, .table-holder td {
+  /* padding: px; */
+  text-align: center;
+  width: 900px;
+  margin: auto;
+}
+
+
+.radarchart-holder {
+	margin: auto;
+	text-align: center;
 }
 
 
