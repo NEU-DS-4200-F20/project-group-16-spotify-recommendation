@@ -12,23 +12,23 @@ var LegendOptions = ['Liked Songs', 'Acoustics'];
 // will incorporate meanattributes function here 
 
 // Data
-var d = [
-  [
-    {axis:"Danceability",value:0.69},
-    {axis:"Energy",value:0.66},
-    {axis:"Popularity",value:0.62},
-    {axis:"Valence",value:0.55},
-    {axis:"Acousticness",value:0.38},
-    {axis:"Speechiness",value:0.44}
-   ],[
-    {axis:"Danceability",value:0.39},
-    {axis:"Energy",value:0.46},
-    {axis:"Popularity",value:0.38},
-    {axis:"Valence",value:0.41},
-    {axis:"Acousticness",value:0.68},
-    {axis:"Speechiness",value:0.64}
-   ]
- ];    
+// var d = [
+//   [
+//     {axis:"Danceability",value:0.69},
+//     {axis:"Energy",value:0.66},
+//     {axis:"Popularity",value:0.62},
+//     {axis:"Valence",value:0.55},
+//     {axis:"Acousticness",value:0.38},
+//     {axis:"Speechiness",value:0.44}
+//    ],[
+//     {axis:"Danceability",value:0.39},
+//     {axis:"Energy",value:0.46},
+//     {axis:"Popularity",value:0.38},
+//     {axis:"Valence",value:0.41},
+//     {axis:"Acousticness",value:0.68},
+//     {axis:"Speechiness",value:0.64}
+//    ]
+//  ];    
 
 
  //Options for the Radar chart, other than default
@@ -43,7 +43,19 @@ var mycfg = {
 
 // //Call function to draw the Radar chart
 // //Will expect that data is in %'s
-RadarChart.draw("#chart", d, mycfg);
+
+// read both data sets nested in each other
+// apply meanAtt to both and combine into a list of datasets
+d3.csv("data/john_liked_songs.csv").then(function(likedData) {
+  var likedDataMeans = meanAtt(likedData);
+  d3.csv("data/john_accoustics_2020.csv").then(function(acousticData) {
+    var acousticDataMeans = meanAtt(acousticData)
+
+    var d = [likedDataMeans,acousticDataMeans] 
+
+    RadarChart.draw("#chart", d, mycfg);
+  });
+});
 
 // ////////////////////////////////////////////
 // /////////// Initiate legend ////////////////
@@ -65,7 +77,7 @@ var text = svg.append("text")
 .attr("fill", "#404040")
 .text("Hex representation of Liked Songs and Acoustics");
 
-// //Initiate Legend	
+//Initiate Legend	
  var legend = svg.append("g")
  .attr("class", "legend")
  .attr("height", 100)

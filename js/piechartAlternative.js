@@ -22,7 +22,7 @@ function piechartAlternative() {
 
     d3.csv("data/john_alt_2020.csv").then(function(csvData) {
 
-        var data = eval(csvData);
+        var data = moodEval(csvData);
 
         console.log(data);
 

@@ -28,7 +28,7 @@ function piechartLiked() {
 
     d3.csv("data/john_liked_songs.csv").then(function(csvData) {
 
-        var data = eval(csvData);
+        var data = moodEval(csvData);
 
         console.log(data);
 
