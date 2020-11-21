@@ -6,10 +6,10 @@
 function table() {
 
   let margin = {
-    top: 60,
-    left: 50,
-    right: 30,
-    bottom: 20
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   };
 
   // var container = d3.select('svg');//.append("table")
@@ -26,10 +26,10 @@ function table() {
   //var table = svg.append('table');
 
   // var keys,
-  var allData,
-    currentData,
-    startPos = 0,
-    increment = 10;
+  // var allData,
+  //   currentData,
+  //   startPos = 0,
+  //   increment = 10;
 
   // var scrollEvent = d3.zoom()
   //   .on('zoom', function (e) {

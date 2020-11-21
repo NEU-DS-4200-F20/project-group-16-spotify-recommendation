@@ -1,34 +1,10 @@
- var w = 500,
- h = 500;
+ var w = 350,
+ h = 350;
 
 var colorscale = d3.scaleOrdinal(d3.schemeCategory10);
 
  //Legend titles
 var LegendOptions = ['Liked Songs', 'Acoustics'];
-
-
-  
-// //using preset data as of now
-// will incorporate meanattributes function here 
-
-// Data
-// var d = [
-//   [
-//     {axis:"Danceability",value:0.69},
-//     {axis:"Energy",value:0.66},
-//     {axis:"Popularity",value:0.62},
-//     {axis:"Valence",value:0.55},
-//     {axis:"Acousticness",value:0.38},
-//     {axis:"Speechiness",value:0.44}
-//    ],[
-//     {axis:"Danceability",value:0.39},
-//     {axis:"Energy",value:0.46},
-//     {axis:"Popularity",value:0.38},
-//     {axis:"Valence",value:0.41},
-//     {axis:"Acousticness",value:0.68},
-//     {axis:"Speechiness",value:0.64}
-//    ]
-//  ];    
 
 
  //Options for the Radar chart, other than default
@@ -37,7 +13,7 @@ var mycfg = {
   h: h,
   maxValue: 0.8,
   levels: 8,
-  ExtraWidthX: 300
+  ExtraWidthX: 200
 }
 
 
@@ -53,7 +29,7 @@ d3.csv("data/john_liked_songs.csv").then(function(likedData) {
 
     var d = [likedDataMeans,acousticDataMeans] 
 
-    RadarChart.draw("#chart", d, mycfg);
+    RadarChart.draw("#radar", d, mycfg);
   });
 });
 
@@ -64,7 +40,7 @@ d3.csv("data/john_liked_songs.csv").then(function(likedData) {
 var svg = d3.select('#body')
  .selectAll('svg')
  .append('svg')
- .attr("width", w+300)
+ .attr("width", w)
  .attr("height", h)
 
 //Create the title for the legend

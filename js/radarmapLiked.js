@@ -10,8 +10,8 @@
         draw: function(id, d, options){
         var cfg = {
            radius: 5,
-           w: 600,
-           h: 600,
+           w: 300,
+           h: 300,
            factor: 1,
            factorLegend: .85,
            levels: 3,
@@ -75,14 +75,15 @@
               .data([1]) //dummy data
               .enter()
               .append("svg:text")
-              .attr("x", function(d){return levelFactor*(1-cfg.factor*Math.sin(0));})
+              .attr("x", function(d){return (levelFactor*(1-cfg.factor*Math.sin(0)));})
               .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(0));})
               .attr("class", "legend")
               .style("font-family", "sans-serif")
               .style("font-size", "10px")
               .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
               .attr("fill", "#737373")
-              .text(Format((j+1)*cfg.maxValue/cfg.levels));
+              .text(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
+              console.log(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
            }
           
            series = 0;
