@@ -24,13 +24,12 @@ var mycfg = {
 // apply meanAtt to both and combine into a list of datasets
 d3.csv("data/john_liked_songs.csv").then(function(likedData) {
   var likedDataMeans = meanAtt(likedData);
-  d3.csv("data/john_accoustics_2020.csv").then(function(acousticData) {
-    var acousticDataMeans = meanAtt(acousticData)
+  
 
-    var d = [likedDataMeans,acousticDataMeans] 
+    var d = [likedDataMeans] 
 
     RadarChart.draw("#radar", d, mycfg);
-  });
+  
 });
 
 // ////////////////////////////////////////////
