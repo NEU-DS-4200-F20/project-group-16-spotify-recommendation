@@ -17,6 +17,20 @@ h1, h2, h3 {
 	margin: 40px auto;
 }
 
+.playlist-buttons-holder {
+	display: flex;
+	margin: auto;
+	border-radius: 10px;
+	border: 5px solid rgb(186, 186, 192);
+	width: 800px;
+	height: 60px;
+}
+
+button {
+	margin: auto;
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans", sans-serif;
+}
+
 
 
 /* But your visualization should be full-width and full-height */
