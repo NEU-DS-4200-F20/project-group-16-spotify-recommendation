@@ -6,10 +6,12 @@
     //add stuff here
     //also need to figure out how to add all 4 data sources. 
     //or combine data source into 1 cvs?
+    const dispatchString = 'selectionUpdated';
 
-    let aditi_liked_songs_table = table();
-    //.selectionDispatcher(d3.dispatch(dispatchString))
-   // ('#table', data);
+
+    let aditi_liked_songs_table = table()
+    .selectionDispatcher(d3.dispatch(dispatchString))
+   ('#table', data);
 
     let john_piechartlegend = piechartLegend();
     let john_piechartLiked = piechartLiked();

@@ -51,112 +51,132 @@ function table() {
   let thead = table.append('thead');
   let tbody = table.append('tbody');//.call(scrollEvent);
 
+  thead.append('tr')
+  .style('text-align', 'left')
+  .selectAll('th')
+  .data(columnNames).enter()
+  .append('th')
+  .style("border-collapse", "collapse")
+  .style("padding", "6px")
+  // .style("border", "1px lightgrey solid")
+  .text(function (column) { return column; });
 
-  d3.csv('data/john_liked_songs.csv').then(data => {
-    let columnNames = ['Title', 'Artist', 'Album'];
-    let columns = ['track_name', 'artist_name', 'album_name'];
+  update('data/john_liked_songs.csv', 'all');
 
-
-     var table = d3.select('#table');
-     var thead = table.select('thead');
-     var tbody = table.select('tbody');
-
-       keys = Object.keys(data[0]),
-         allData = data;
-
-       thead.append('tr')
-       .style('text-align', 'left')
-       .selectAll('th')
-       .data(columnNames).enter()
-       .append('th')
-       .style("border-collapse", "collapse")
-       .style("padding", "6px")
-       // .style("border", "1px lightgrey solid")
-       .text(function (column) { return column; });
-
-       //updateTable();
-
-       //creates the rows for tables
-       var rows = tbody.selectAll('tr')//.append('#svg')
-         .data(data)
-         .enter()
-         .append('tr');
-
-       var cells = rows.selectAll('td')//.append('#svg')
-       .data(function (row) {
-         return columns.map(function (column) {
-           return { column: column, value: row[column] };
-         });
-       })
-         //const path = svg.selectAll('path')
-         .enter()
-         .append('td')
-         //.append('path')
-         .text(function (d) { return d.value; })
-         .style("border-collapse", "collapse")
-         .style("padding", "6px")
-         .style("border", "1px lightgrey solid")
-         .exit()
-         .remove();
-  });
 }
 
 function update(playlist, mood) {
+
+  // selectableElements = d3.select(null),
+  // dispatcher;
+  let columnNames = ['Test', 'Test', 'Test'];
+  let columns = ['track_name', 'artist_name', 'album_name'];
+
+  var table = d3.selectAll('#table');
+
+  table.select('tbody').remove();
+
+  var thead = table.append('thead');
+  var tbody = table.append('tbody');
+
   d3.csv(playlist).then(data => {
-       let columnNames = ['Test', 'Test', 'Test'];
-       let columns = ['track_name', 'artist_name', 'album_name'];
+
+    updateData = filterByMood(data, mood);
+    console.log(updateData);
+
+    keys = Object.keys(updateData[0]),
+      allData = data;
+
+    thead.append('tr')
+    .enter()
+    .style('text-align', 'left')
+    .selectAll('th')
+    .data(columnNames).enter()
+    .select('th')
+    .style("border-collapse", "collapse")
+    .style("padding", "6px")
+    // .style("border", "1px lightgrey solid")
+    .text(function (column) { return column; });
+
+    //updateTable();
+
+    //creates the rows for tables
+    var rows = tbody.selectAll('tr')//.append('#svg')
+      .data(data)
+      .enter()
+      .append('tr');
+
+    var cells = rows.selectAll('td')//.append('#svg')
+    .data(function (row) {
+      return columns.map(function (column) {
+        return { column: column, value: row[column] };
+      });
+    })
+      //const path = svg.selectAll('path')
+      .enter()
+      .append('td')
+      //.append('path')
+      .text(function (d) { return d.value; })
+      .style("border-collapse", "collapse")
+      .style("padding", "6px")
+      .style("border", "1px lightgrey solid")
+      .exit()
+      .remove();
+
+    // var mouseState = false;
 
 
-        var table = d3.selectAll('#table');
+    // function selectedRowsDown() {
+    //   mouseState = true;
+    //   let dispatchString =
+    //   Object.getOwnPropertyNames(dispatcher._)[0];
+    //     table.selectAll(".selected").attr("class","");
+    //     dispatcher.call(dispatchString, this, []);
+    // }
 
-        table.select('tbody').remove();
+    // //when mouse is moved, start highlighting process
+    // function selectedRowsMove() {
+    //   if (mouseState) {
+    //     d3.select(this).attr("class", "selected");
+    //     let dispatchString = 
+    //     Object.getOwnPropertyNames(dispatcher._)[0];
+    //       dispatcher.call(dispatchString, this,
+    //         table.selectAll(".selected").data());
+    //   }
+    // }
 
-        var thead = table.append('thead');
-        var tbody = table.append('tbody');
+    // rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove)
+    
+    // //when mouse is no longer pressed, stop highlighting
+    // function endSelection() {
+    //   mouseState = false;
+    // }
 
-          updateData = filterByMood(data, mood);
-          console.log(updateData);
+    // table.on("mouseup", endSelection);
 
-          keys = Object.keys(updateData[0]),
-            allData = data;
+    // // Gets or sets the dispatcher we use for selection events
+    // update.selectionDispatcher = function (_) {
+    //   if (!arguments.length) return dispatcher;
+    //   dispatcher = _;
+    //   return chart;
+    // };
 
-          thead.append('tr')
-          .enter()
-          .style('text-align', 'left')
-          .selectAll('th')
-          .data(columnNames).enter()
-          .select('th')
-          .style("border-collapse", "collapse")
-          .style("padding", "6px")
-          // .style("border", "1px lightgrey solid")
-          .text(function (column) { return column; });
+    // // Given selected data from another visualization 
+    // // select the relevant elements here (linking)
+    // update.updateSelection = function (selectedData) {
+    //   if (!arguments.length) return
+      
+    //   // Select an element if its datum was selected
+    //   selectableElements.classed('selected', d =>
+    //     selectedData.includes(d)
 
-          //updateTable();
+    //   );
+    // };
 
-          //creates the rows for tables
-          var rows = tbody.selectAll('tr')//.append('#svg')
-            .data(data)
-            .enter()
-            .append('tr');
-
-          var cells = rows.selectAll('td')//.append('#svg')
-          .data(function (row) {
-            return columns.map(function (column) {
-              return { column: column, value: row[column] };
-            });
-          })
-            //const path = svg.selectAll('path')
-            .enter()
-            .append('td')
-            //.append('path')
-            .text(function (d) { return d.value; })
-            .style("border-collapse", "collapse")
-            .style("padding", "6px")
-            .style("border", "1px lightgrey solid")
-            .exit()
-            .remove();
   });
 }
+
+
 
   // function updateTable() {
   //   // Set new data based on startPos and increment.
