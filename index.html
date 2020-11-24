@@ -64,10 +64,10 @@
 
   <div class='playlist-buttons-holder'>
 
-    <button class='likedsongsbutton' onclick="update('data/john_liked_songs.csv','all')">Liked Songs</button>
-    <button onclick="update('data/john_accoustics_2020.csv','all')">Midnight Acoustics</button>
-    <button onclick="update('data/john_alt_2020.csv','all')">No Other Alternatives</button>
-    <button onclick="update('data/john_hosting_2020.csv','all')">Hosting 2020</button>
+    <button class='likedsongsbutton' onclick="update('data/john_liked_songs.csv','all'); updateRadar('data/john_liked_songs.csv')">Liked Songs</button>
+    <button onclick="update('data/john_accoustics_2020.csv','all'); updateRadar('data/john_accoustics_2020.csv')">Midnight Acoustics</button>
+    <button onclick="update('data/john_alt_2020.csv','all'); updateRadar('data/john_alt_2020.csv')">No Other Alternatives</button>
+    <button onclick="update('data/john_hosting_2020.csv','all'); updateRadar('data/john_hosting_2020.csv')">Hosting 2020</button>
 
   </div>
 
