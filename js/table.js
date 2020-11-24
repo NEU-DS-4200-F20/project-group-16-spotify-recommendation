@@ -63,6 +63,8 @@ function table() {
 
   update('data/john_liked_songs.csv', 'all');
 
+  //brushing here
+
 }
 
 function update(playlist, mood) {
