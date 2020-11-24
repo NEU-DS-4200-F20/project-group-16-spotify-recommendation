@@ -69,7 +69,7 @@ function update(playlist, mood) {
 
   // selectableElements = d3.select(null),
   // dispatcher;
-  let columnNames = ['Test', 'Test', 'Test'];
+  let columnNames = ['Title', 'Artist', 'Album'];
   let columns = ['track_name', 'artist_name', 'album_name'];
 
   var table = d3.selectAll('#table');
