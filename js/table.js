@@ -41,57 +41,122 @@ function table() {
   //   });
 
   //sets table properties
-  let columns = ['track_name', 'artist_name', 'album_name']
-  let columnNames = ['Title', 'Artist', 'Album']
-  let table = d3.select('#table')
+  let columns = ['track_name', 'artist_name', 'album_name'];
+  let columnNames = ['Title', 'Artist', 'Album'];
+  let table = d3.select('#table');
+
     // .attr("style", "margin-center")
     //.style("width", "25%")
-  // .style("border", "1px black solid")
-  let thead = table.append('thead')
-  let tbody = table.append('tbody')//.call(scrollEvent);
+  // .style("border", "1px black solid") d
+  let thead = table.append('thead');
+  let tbody = table.append('tbody');//.call(scrollEvent);
 
 
-  d3.csv("data/john_liked_songs.csv").then(function (data) {
+  d3.csv('data/john_liked_songs.csv').then(data => {
+    let columnNames = ['Title', 'Artist', 'Album'];
+    let columns = ['track_name', 'artist_name', 'album_name'];
 
-    console.log(data);
 
-    keys = Object.keys(data[0]),
-      allData = data;
+     var table = d3.select('#table');
+     var thead = table.select('thead');
+     var tbody = table.select('tbody');
 
-    thead.append('tr')
-    .style('text-align', 'left')
-    .selectAll('th')
-    .data(columnNames).enter()
-    .append('th')
-    .style("border-collapse", "collapse")
-    .style("padding", "6px")
-   // .style("border", "1px lightgrey solid")
-    .text(function (column) { return column; });
+       keys = Object.keys(data[0]),
+         allData = data;
 
-    //updateTable();
+       thead.append('tr')
+       .style('text-align', 'left')
+       .selectAll('th')
+       .data(columnNames).enter()
+       .append('th')
+       .style("border-collapse", "collapse")
+       .style("padding", "6px")
+       // .style("border", "1px lightgrey solid")
+       .text(function (column) { return column; });
 
-    //creates the rows for tables
-    var rows = tbody.selectAll('tr')//.append('#svg')
-      .data(data)
-      .enter()
-      .append('tr');
+       //updateTable();
 
-    var cells = rows.selectAll('td')//.append('#svg')
-    .data(function (row) {
-      return columns.map(function (column) {
-        return { column: column, value: row[column] };
-      });
-    })
-      //const path = svg.selectAll('path')
-      .enter()
-      .append('td')
-      //.append('path')
-      .text(function (d) { return d.value; })
-      .style("border-collapse", "collapse")
-      .style("padding", "6px")
-      .style("border", "1px lightgrey solid");
+       //creates the rows for tables
+       var rows = tbody.selectAll('tr')//.append('#svg')
+         .data(data)
+         .enter()
+         .append('tr');
 
+       var cells = rows.selectAll('td')//.append('#svg')
+       .data(function (row) {
+         return columns.map(function (column) {
+           return { column: column, value: row[column] };
+         });
+       })
+         //const path = svg.selectAll('path')
+         .enter()
+         .append('td')
+         //.append('path')
+         .text(function (d) { return d.value; })
+         .style("border-collapse", "collapse")
+         .style("padding", "6px")
+         .style("border", "1px lightgrey solid")
+         .exit()
+         .remove();
   });
+}
+
+function update(playlist, mood) {
+  d3.csv(playlist).then(data => {
+       let columnNames = ['Test', 'Test', 'Test'];
+       let columns = ['track_name', 'artist_name', 'album_name'];
+
+
+        var table = d3.selectAll('#table');
+
+        table.select('tbody').remove();
+
+        var thead = table.append('thead');
+        var tbody = table.append('tbody');
+
+          updateData = filterByMood(data, mood);
+          console.log(updateData);
+
+          keys = Object.keys(updateData[0]),
+            allData = data;
+
+          thead.append('tr')
+          .enter()
+          .style('text-align', 'left')
+          .selectAll('th')
+          .data(columnNames).enter()
+          .select('th')
+          .style("border-collapse", "collapse")
+          .style("padding", "6px")
+          // .style("border", "1px lightgrey solid")
+          .text(function (column) { return column; });
+
+          //updateTable();
+
+          //creates the rows for tables
+          var rows = tbody.selectAll('tr')//.append('#svg')
+            .data(data)
+            .enter()
+            .append('tr');
+
+          var cells = rows.selectAll('td')//.append('#svg')
+          .data(function (row) {
+            return columns.map(function (column) {
+              return { column: column, value: row[column] };
+            });
+          })
+            //const path = svg.selectAll('path')
+            .enter()
+            .append('td')
+            //.append('path')
+            .text(function (d) { return d.value; })
+            .style("border-collapse", "collapse")
+            .style("padding", "6px")
+            .style("border", "1px lightgrey solid")
+            .exit()
+            .remove();
+  });
+}
 
   // function updateTable() {
   //   // Set new data based on startPos and increment.
@@ -129,4 +194,3 @@ function table() {
   //     .style("padding", "6px")
   //     .style("border", "1px lightgrey solid");
   // }
-}

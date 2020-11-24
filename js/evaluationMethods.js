@@ -90,3 +90,40 @@ function meanAtt(data) {
     // return the end result
     return meanResult;
   }
+
+function getData(data, playlist, mood) {
+    if (playlist === 'all') {
+        return filterByMood(data, mood);
+    }
+    else {
+        return filterByMood(filterByPlaylist(data, playlist), mood);
+    }
+}
+
+
+function filterByMood(csvData, mood) {
+var result = [];
+if (mood === 'all') {
+    result = csvData;
+}
+else {
+    csvData.forEach(element => {
+        if (mood === 'happy') {
+            result.push(element);
+        }
+        else if (mood === 'gloomy') {
+            result.push(element);
+        }
+        else if (mood === 'bops') {
+            result.push(element);
+        }
+        else if (mood === 'dance') {
+            result.push(element);
+        }
+        else if (mood === 'study') {
+            result.push(element);
+        }
+    });
+}
+return result;
+}
