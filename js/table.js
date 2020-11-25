@@ -12,42 +12,11 @@ function table() {
     bottom: 0
   };
 
-  // var container = d3.select('svg');//.append("table")
-  //.attr("id", "scrollbar");
-
-  // var table = container.append('table')
-  //.attr('height', 100)
-  //.attr('width', 100)
-  //.attr('id', 'bg');
-
-
-  // var svg = d3.select('svg');
-
-  //var table = svg.append('table');
-
-  // var keys,
-  // var allData,
-  //   currentData,
-  //   startPos = 0,
-  //   increment = 10;
-
-  // var scrollEvent = d3.zoom()
-  //   .on('zoom', function (e) {
-  //     var scrollDirection = (d3.event.deltaY > 0) ? 1 : -1;
-  //     startPos += (scrollDirection > 0 && startPos + increment < allData.length) ? scrollDirection
-  //       : (scrollDirection < 0 && startPos + increment > increment) ? scrollDirection
-  //         : 0;
-  //     updateTable();
-  //   });
-
   //sets table properties
   let columns = ['track_name', 'artist_name', 'album_name'];
   let columnNames = ['Title', 'Artist', 'Album'];
   let table = d3.select('#table');
 
-    // .attr("style", "margin-center")
-    //.style("width", "25%")
-  // .style("border", "1px black solid") d
   let thead = table.append('thead');
   let tbody = table.append('tbody');//.call(scrollEvent);
 
@@ -66,6 +35,8 @@ function table() {
 }
 
 function update(playlist, mood) {
+
+  var dispatcher;
 
   // selectableElements = d3.select(null),
   // dispatcher;
@@ -122,14 +93,13 @@ function update(playlist, mood) {
       .style("border", "1px lightgrey solid")
       .exit()
       .remove();
-
+ 
     // var mouseState = false;
-
 
     // function selectedRowsDown() {
     //   mouseState = true;
     //   let dispatchString =
-    //   Object.getOwnPropertyNames(dispatcher._)[0];
+    //   Object.getOwnPropertyNames(dispatcher)[0];
     //     table.selectAll(".selected").attr("class","");
     //     dispatcher.call(dispatchString, this, []);
     // }
@@ -139,7 +109,7 @@ function update(playlist, mood) {
     //   if (mouseState) {
     //     d3.select(this).attr("class", "selected");
     //     let dispatchString = 
-    //     Object.getOwnPropertyNames(dispatcher._)[0];
+    //     Object.getOwnPropertyNames(dispatcher)[0];
     //       dispatcher.call(dispatchString, this,
     //         table.selectAll(".selected").data());
     //   }
@@ -155,9 +125,9 @@ function update(playlist, mood) {
     // table.on("mouseup", endSelection);
 
     // // Gets or sets the dispatcher we use for selection events
-    // update.selectionDispatcher = function (_) {
+    // update.selectionDispatcher = function () {
     //   if (!arguments.length) return dispatcher;
-    //   dispatcher = _;
+    //   dispatcher;
     //   return chart;
     // };
 
