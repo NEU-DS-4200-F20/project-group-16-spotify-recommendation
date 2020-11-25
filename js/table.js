@@ -32,10 +32,6 @@ function table() {
 
   update('data/john_liked_songs.csv', 'all');
 
-  //brushing here
-
-  
-
 }
 
 function update(playlist, mood) {
@@ -46,11 +42,6 @@ function update(playlist, mood) {
   // dispatcher;
   let columnNames = ['Title', 'Artist', 'Album'];
   let columns = ['track_name', 'artist_name', 'album_name'];
-
-  // brushing dispatcher
-  let ourBrush = null,
-    selectableElements = d3.select(null),
-    dispatcher;
 
   var table = d3.selectAll('#table');
 
@@ -102,48 +93,7 @@ function update(playlist, mood) {
       .style("border", "1px lightgrey solid")
       .exit()
       .remove();
-      //////////////////////////////////////////////////////////////////////////////////////////
-
-    // adding brushing   
-    rows.on("mouseover", selectRow).on("mousemove", selectRow);
-
-    table.on("mouseleave", endSelection);
-
-    function selectRow() { 
-        d3.select(this).attr("class", "selected");
-        let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-        dispatcher.call(dispatchString, this, tablebody.selectAll(".selected").data());
-    }
-
-    function endSelection() {
-        let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-        tablebody.selectAll(".selected").attr("class","");
-        dispatcher.call(dispatchString, this, []);
-    }
-
-    // Gets or sets the dispatcher we use for selection events
-  table.selectionDispatcher = function (_) {
-    if (!arguments.length) return dispatcher;
-    dispatcher = _;
-    return table;
-  };
-
-  // Given selected data from another visualization 
-  // select the relevant elements here (linking)
-  table.updateSelection = function (selectedData) {
-    if (!arguments.length) return;
-
-    // Select an element if its datum was selected
-    d3.selectAll('tr').classed("selected", d => {
-      return selectedData.includes(d)
-    });
-
-
-    d3.selectAll('td').classed("selected", d => {
-      return selectedData.includes(d)
-    });
-  };
-
+ 
     // var mouseState = false;
 
     // function selectedRowsDown() {
