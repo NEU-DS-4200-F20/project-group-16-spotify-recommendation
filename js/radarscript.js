@@ -30,6 +30,27 @@ function updateRadar(selection) {
     console.log(d);
 
     RadarChart.draw("#radar", d, mycfg);
+
+    // function updateRadar(playlistName, selectedData) {
+    //   if (length(selectedData) == 0) {
+    //     d3.csv(playlistName).then(function(likedData) {
+    //       var likedDataMeans = meanAtt(likedData);
+    //       var d = [likedDataMeans]; 
+    
+    //       console.log(d);
+    
+    //       RadarChart.draw("#radar", d, mycfg);
+    
+    //     });
+    //   }
+    
+    //   else {
+    //     var likedDataMeans = meanAtt(selectedData);
+    //     var d = [likedDataMeans]; 
+    
+    //     console.log(d);
+    
+    //     RadarChart.draw("#radar", d, mycfg);
     
   });
 }

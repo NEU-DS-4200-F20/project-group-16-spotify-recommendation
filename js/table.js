@@ -18,17 +18,16 @@ function table() {
   let table = d3.select('#table');
 
   let thead = table.append('thead');
-  let tbody = table.append('tbody');//.call(scrollEvent);
+  let tbody = table.append('tbody');
 
   thead.append('tr')
-  .style('text-align', 'left')
-  .selectAll('th')
-  .data(columnNames).enter()
-  .append('th')
-  .style("border-collapse", "collapse")
-  .style("padding", "6px")
-  // .style("border", "1px lightgrey solid")
-  .text(function (column) { return column; });
+    .style('text-align', 'left')
+    .selectAll('th')
+    .data(columnNames).enter()
+    .append('th')
+    .style("border-collapse", "collapse")
+    .style("padding", "6px")
+    .text(function (column) { return column; });
 
   update('data/john_liked_songs.csv', 'all');
 
@@ -59,128 +58,125 @@ function update(playlist, mood) {
       allData = data;
 
     thead.append('tr')
-    .enter()
-    .style('text-align', 'left')
-    .selectAll('th')
-    .data(columnNames).enter()
-    .select('th')
-    .style("border-collapse", "collapse")
-    .style("padding", "6px")
-    // .style("border", "1px lightgrey solid")
-    .text(function (column) { return column; });
+      .enter()
+      .style('text-align', 'left')
+      .selectAll('th')
+      .data(columnNames).enter()
+      .select('th')
+      .style("border-collapse", "collapse")
+      .style("padding", "6px")
+      .text(function (column) { return column; });
 
     //updateTable();
 
     //creates the rows for tables
-    var rows = tbody.selectAll('tr')//.append('#svg')
+    var rows = tbody.selectAll('tr')
       .data(data)
       .enter()
       .append('tr');
 
-    var cells = rows.selectAll('td')//.append('#svg')
-    .data(function (row) {
-      return columns.map(function (column) {
-        return { column: column, value: row[column] };
-      });
-    })
-      //const path = svg.selectAll('path')
+    var cells = rows.selectAll('td')
+      .data(function (row) {
+        return columns.map(function (column) {
+          return { column: column, value: row[column] };
+        });
+      })
       .enter()
       .append('td')
-      //.append('path')
       .text(function (d) { return d.value; })
       .style("border-collapse", "collapse")
       .style("padding", "6px")
       .style("border", "1px lightgrey solid")
       .exit()
       .remove();
- 
-    // var mouseState = false;
 
-    // function selectedRowsDown() {
-    //   mouseState = true;
-    //   let dispatchString =
-    //   Object.getOwnPropertyNames(dispatcher)[0];
-    //     table.selectAll(".selected").attr("class","");
-    //     dispatcher.call(dispatchString, this, []);
-    // }
+    //Brushing
+    htmlTable = d3.select('table')
+    table.style("cursor", "crosshair")
+    rows.on("mousedown", brushRow).on("mousemove", brushRow)
+    table.on("mouseup", endBrushing);
 
-    // //when mouse is moved, start highlighting process
-    // function selectedRowsMove() {
-    //   if (mouseState) {
-    //     d3.select(this).attr("class", "selected");
-    //     let dispatchString = 
-    //     Object.getOwnPropertyNames(dispatcher)[0];
-    //       dispatcher.call(dispatchString, this,
-    //         table.selectAll(".selected").data());
-    //   }
-    // }
+    function brushRow() {
+      d3.select(this).attr("class", "selected");
+      let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
+      dispatcher.call(dispatch, this, tbody.selectAll("selected").data());
+    }
 
-    // rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove)
-    
-    // //when mouse is no longer pressed, stop highlighting
-    // function endSelection() {
-    //   mouseState = false;
-    // }
+    // mouse off function to stop highlighting
+    function endBrushing() {
+      let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
+      tbody.selectAll("selected").attr('table').data();
+      dispatcher.call(dispatch, this, []);
+    }
+        
+     update.selectionDispatcher = function (a) {
+      if (!arguments.length) return dispatcher;
+      dispatcher = a;
+      return update;
+    };
 
-    // table.on("mouseup", endSelection);
+  update.updateSelection = function (dataSelected) {
+    if (arguments.length == false) return;
 
-    // // Gets or sets the dispatcher we use for selection events
-    // update.selectionDispatcher = function () {
-    //   if (!arguments.length) return dispatcher;
-    //   dispatcher;
-    //   return chart;
-    // };
+    d3.selectAll('tr').classed("selected", d => {
+      return dataSelected.includes(d)
+    });
 
-    // // Given selected data from another visualization 
-    // // select the relevant elements here (linking)
-    // update.updateSelection = function (selectedData) {
-    //   if (!arguments.length) return
-      
-    //   // Select an element if its datum was selected
-    //   selectableElements.classed('selected', d =>
-    //     selectedData.includes(d)
+    d3.selectAll('td').classed("selected", d => {
+      return dataSelected.includes(d)
+    })
+  }
 
-    //   );
-    // };
+    //      var mouseState = false;
+    //      //var dispatcher = d3.dispatch("data", "selectionUpdated");
+
+    //     function selectedRowsDown() {
+    //       mouseState = true;
+    //       let dispatchString =
+    //       Object.getOwnPropertyNames(dispatcher._)[0];
+    //         table.selectAll(".selected").attr("class","");
+    //         var dispatcher = d3.dispatch(dispatchString);
+    //         dispatcher.call(dispatchString, this, []);
+    //     }
+
+    //     //when mouse is moved, start highlighting process
+    //     function selectedRowsMove() {
+    //       if (mouseState) {
+    //         d3.select(this).attr("class", "selected");
+    //         let dispatchString = 
+    //         Object.getOwnPropertyNames(dispatcher._)[0];
+    //           dispatcher.call(dispatchString, this,
+    //             table.selectAll(".selected").data());
+    //       }
+    //     }
+
+    //     rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove)
+
+    //     //when mouse is no longer pressed, stop highlighting
+    //     function endSelection() {
+    //       mouseState = false;
+    //     }
+
+    //     table.on("mouseup", endSelection);
+
+    //     // Gets or sets the dispatcher we use for selection events
+    //     update.selectionDispatcher = function () {
+    //       if (!arguments.length) return dispatcher;
+    //       dispatcher;
+    //       return chart;
+    //     };
+
+    //     // Given selected data from another visualization 
+    //     // select the relevant elements here (linking)
+    //     update.updateSelection = function (selectedData) {
+    //       if (!arguments.length) return
+
+    //       // Select an element if its datum was selected
+    //       selectableElements.classed('selected', d =>
+    //         selectedData.includes(d)
+
+    //       );
+    //     };
 
   });
 }
-
-
-
-  // function updateTable() {
-  //   // Set new data based on startPos and increment.
-  //   currentData = allData.slice(startPos, startPos + increment);
-
-  //   // Delete previous rows.
-  //   tbody.selectAll('tr').remove();
-
-  //   // Create new rows.
-  //   var tr = tbody.selectAll("tr")
-  //     .data(currentData).enter()
-  //     .append("tr")
-  //     .classed("even", function (d, i) {
-  //       return i % 2 == 1;
-  //     });
-
-  //   tr.selectAll('td')
-  //     .data(function (row) {
-  //       return columns.map(function (column) {
-  //         return { column: column, value: row[column] };
-  //       });
-  //     })
-  //     // .data(function (d) {
-  //     //   return keys.map(function (e) {
-  //     //     return {
-  //     //       key: e,
-  //     //       value: d[e]
-  //     //     }
-  //     //   });
-  //     //})
-  //     .enter()
-  //     .append('td')
-  //     .text(function (d) { return d.value; })
-  //     .style("border-collapse", "collapse")
-  //     .style("padding", "6px")
-  //     .style("border", "1px lightgrey solid");
-  // }
