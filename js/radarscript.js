@@ -22,8 +22,8 @@ var mycfg = {
 
 // read both data sets nested in each other
 // apply meanAtt to both and combine into a list of datasets
-function updateRadar(playlistName, selectedData) {
-  if (length(selectedData) == 0) {
+function updateRadar(playlistName) {
+  //if ((selectedData.length) == 0) {
     d3.csv(playlistName).then(function(likedData) {
       var likedDataMeans = meanAtt(likedData);
       var d = [likedDataMeans]; 
@@ -33,16 +33,16 @@ function updateRadar(playlistName, selectedData) {
       RadarChart.draw("#radar", d, mycfg);
       
     });
-  }
+  // }
 
-  else {
-    var likedDataMeans = meanAtt(selectedData);
-    var d = [likedDataMeans]; 
+  // else {
+  //   var likedDataMeans = meanAtt(selectedData);
+  //   var d = [likedDataMeans]; 
 
-    console.log(d);
+  //   console.log(d);
 
-    RadarChart.draw("#radar", d, mycfg);
-  }
+  //   RadarChart.draw("#radar", d, mycfg);
+  // }
 }
 
 updateRadar("data/john_liked_songs.csv");

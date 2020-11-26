@@ -29,6 +29,24 @@ h1, h2, h3 {
 button {
 	margin: auto;
 	font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans", sans-serif;
+
+}
+
+button:focus {
+	background-color: #A9BCD0;
+	border-color: white;
+}
+
+.tooltip {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	z-index: 10;
 }
 
 
