@@ -21,19 +21,19 @@ function moodEval(data) {
                     {mood: "study", tracks: 0}];
 
     data.forEach(element => {
-        if (parseFloat(element.energy) > .6 && parseFloat(element.valence) > .6 && parseFloat(element.danceability) > .5) {
+        if (parseFloat(element.energy) > .5 && parseFloat(element.valence) > .6 && parseFloat(element.danceability) > .5) {
             result[0].tracks += 1;
         }
-        if (parseFloat(element.energy) < .5 && parseFloat(element.valence) < .5 && parseFloat(element.danceability) < .5) {
+        if (parseFloat(element.energy) < .6 && parseFloat(element.valence) < .6 && parseFloat(element.danceability) < .5) {
             result[1].tracks += 1;
         }
-        if (parseFloat(element.popularity) > 80 && parseFloat(element.valence) > .6) {
+        if (parseFloat(element.popularity) > 68 && parseFloat(element.valence) > .6) {
             result[2].tracks += 1;
         }
-        if (parseFloat(element.energy) > .8 && parseFloat(element.danceability) > .8) {
+        if (parseFloat(element.energy) > .6 && parseFloat(element.danceability) > .6) {
             result[3].tracks += 1;
         }
-        if (parseFloat(element.energy) < .6 && parseFloat(element.speechiness) > .7 && parseFloat(element.acousticness) > .8) {
+        if (parseFloat(element.energy) < .6 && parseFloat(element.acousticness) > .8) {
             result[4].tracks += 1;
         }
     });

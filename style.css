@@ -9,6 +9,8 @@ h1, h2, h3 {
 	line-height: 1.2;
 	padding: 10px;
 	margin: auto;
+	text-align: center;
+	display: block;
 }
 
 /* Your text should be in a nice narrow column */
@@ -37,7 +39,12 @@ button:focus {
 	border-color: white;
 }
 
-.tooltip {
+#piechartLiked {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipLiked {
 	background: #eee;
 	border-radius: 10px;
 	color: #333;
@@ -46,6 +53,65 @@ button:focus {
 	position: absolute;
 	text-align: center;
 	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartHosting {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipHosting {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartAccoustic {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipAcoustic {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartAlternative {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipAlt {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
 	z-index: 10;
 }
 
@@ -53,10 +119,14 @@ button:focus {
 
 /* But your visualization should be full-width and full-height */
 .piechart-holder {
-  text-align: center;
   margin: auto;
   padding-top: 50px;
+  display: flex;
+  text-align: center;
 }
+
+
+
 
 .piechartlegend-holder {
 	width: 100%;

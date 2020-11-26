@@ -32,17 +32,23 @@ function piechartLiked() {
         .innerRadius(radius - 50)
         .outerRadius(radius);
 
-    var tooltip = d3.select('#piechartLiked')
+    var tooltipLiked = d3.select('#piechartLiked')
         .append('div')
-        .attr('class', 'tooltip')
+        .attr('class', 'tooltipLiked')
 
-    tooltip.append('div')
-		.attr('class', 'mood');
+    tooltipLiked.append('div')
+		.attr('class', 'textLiked');
 
 
     d3.csv("data/john_liked_songs.csv").then(function(csvData) {
 
         var data = moodEval(csvData);
+
+        var trackTotal = 0;
+
+        data.forEach(element => {
+             trackTotal += element.tracks;
+        });
 
         console.log(data);
         
@@ -56,21 +62,17 @@ function piechartLiked() {
             .attr('d', arc)
             .style('fill', (d, i) => colorScale(i))
 
+        tooltipLiked.select('.textLiked').html("total<br>" + trackTotal);
+        tooltipLiked.style('display', 'block');
+
         path.on('mouseover', function(d) {
-            // var total = d3.sum(data.map(function(d) {
-            //     return d.count;
-            // }));
-            // var percent = Math.round(1000 * d.data.count / total) / 10;
-            console.log(d);
-            tooltip.select('.mood').html(d.srcElement.__data__.data.mood.toString());
-            //tooltip.select('.tracks').html(d.data.tracks);
-            //tooltip.select('.percent').html(percent + '%');
-            tooltip.style('display', 'block');
+            tooltipLiked.select('.textLiked').html(d.srcElement.__data__.data.mood + "<br>" + d.srcElement.__data__.data.tracks);
+            tooltipLiked.style('display', 'block');
             });
             
-        // path.on('mouseout', function() {
-        //     tooltip.style('display', 'none');
-        //     });  
+        path.on('mouseout', function() {
+            tooltipLiked.select('.textLiked').html("total<br>" + trackTotal);
+            });  
         
         svg.append("text")
             .attr("x", 0)             
