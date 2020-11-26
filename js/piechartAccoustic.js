@@ -69,10 +69,12 @@ function piechartAccoustic() {
         path.on('mouseover', function(d) {
             tooltipAcoustic.select('.textAcoustic').html(d.srcElement.__data__.data.mood + "<br>" + d.srcElement.__data__.data.tracks);
             tooltipAcoustic.style('display', 'block');
+            d3.select(this).style('opacity', '.7');
             });
             
         path.on('mouseout', function() {
             tooltipAcoustic.select('.textAcoustic').html("total<br>" + trackTotal);
+            d3.select(this).style('opacity', '1');
             });  
         
         svg.append("text")

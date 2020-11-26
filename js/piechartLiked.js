@@ -68,10 +68,12 @@ function piechartLiked() {
         path.on('mouseover', function(d) {
             tooltipLiked.select('.textLiked').html(d.srcElement.__data__.data.mood + "<br>" + d.srcElement.__data__.data.tracks);
             tooltipLiked.style('display', 'block');
+            d3.select(this).style('opacity', '.7');
             });
             
         path.on('mouseout', function() {
             tooltipLiked.select('.textLiked').html("total<br>" + trackTotal);
+            d3.select(this).style('opacity', '1');
             });  
         
         svg.append("text")
