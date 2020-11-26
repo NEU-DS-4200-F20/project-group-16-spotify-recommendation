@@ -22,27 +22,37 @@ var mycfg = {
 
 // read both data sets nested in each other
 // apply meanAtt to both and combine into a list of datasets
-function updateRadar(playlistName) {
-  //if ((selectedData.length) == 0) {
-    d3.csv(playlistName).then(function(likedData) {
-      var likedDataMeans = meanAtt(likedData);
-      var d = [likedDataMeans]; 
-
-      console.log(d);
-
-      RadarChart.draw("#radar", d, mycfg);
-      
-    });
-  // }
-
-  // else {
-  //   var likedDataMeans = meanAtt(selectedData);
-  //   var d = [likedDataMeans]; 
+function updateRadar(selection) {
+  d3.csv(selection).then(function(likedData) {
+    var likedDataMeans = meanAtt(likedData);
+    var d = [likedDataMeans]; 
 
   //   console.log(d);
 
-  //   RadarChart.draw("#radar", d, mycfg);
-  // }
+    RadarChart.draw("#radar", d, mycfg);
+
+    // function updateRadar(playlistName, selectedData) {
+    //   if (length(selectedData) == 0) {
+    //     d3.csv(playlistName).then(function(likedData) {
+    //       var likedDataMeans = meanAtt(likedData);
+    //       var d = [likedDataMeans]; 
+    
+    //       console.log(d);
+    
+    //       RadarChart.draw("#radar", d, mycfg);
+    
+    //     });
+    //   }
+    
+    //   else {
+    //     var likedDataMeans = meanAtt(selectedData);
+    //     var d = [likedDataMeans]; 
+    
+    //     console.log(d);
+    
+    //     RadarChart.draw("#radar", d, mycfg);
+    
+  });
 }
 
 updateRadar("data/john_liked_songs.csv");
