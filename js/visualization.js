@@ -10,8 +10,7 @@
 
 
     let aditi_liked_songs_table = table()
-    // .selectionDispatcher(d3.dispatch(dispatchString))
-    //('#table', data);
+    .selectionDispatcher(d3.dispatch(dispatchString));
 
     let john_piechartlegend = piechartLegend();
     let john_piechartLiked = piechartLiked();

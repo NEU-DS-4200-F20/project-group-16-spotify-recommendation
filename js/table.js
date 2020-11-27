@@ -12,6 +12,10 @@ function table() {
     bottom: 0
   };
 
+  selectableElements = d3.select(null),
+  dispatcher;
+
+
   //sets table properties
   let columns = ['track_name', 'artist_name', 'album_name'];
   let columnNames = ['Title', 'Artist', 'Album'];
@@ -31,11 +35,66 @@ function table() {
 
   update('data/john_liked_songs.csv', 'all');
 
+  //Brushing
+  htmlTable = d3.select('table')
+  table.style("cursor", "crosshair")
+  rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove)
+      table.on("mouseup", endSelection);
+
+
+  var mouseState = false;
+  //var dispatcher = d3.dispatch("data", "selectionUpdated");
+
+  function selectedRowsDown() {
+    mouseState = true;
+    let dispatchString =
+    Object.getOwnPropertyNames(dispatcher._)[0];
+      table.selectAll(".selected").attr("class","");
+      var dispatcher = d3.dispatch(dispatchString);
+      dispatcher.call(dispatchString, this, []);
+  }
+
+  //when mouse is moved, start highlighting process
+  function selectedRowsMove() {
+    if (mouseState) {
+      d3.select(this).attr("class", "selected");
+      let dispatchString = 
+      Object.getOwnPropertyNames(dispatcher._)[0];
+        dispatcher.call(dispatchString, this,
+          table.selectAll(".selected").data());
+    }
+  }
+
+  //when mouse is no longer pressed, stop highlighting
+  function endSelection() {
+    mouseState = false;
+  }
+
+  table.on("mouseup", endSelection);
+
+
+      
+  update.selectionDispatcher = function (_) {
+    if (!arguments.length) return dispatcher;
+    dispatcher = _;
+    return update;
+  };
+
+  update.updateSelection = function (dataSelected) {
+    if (arguments.length == false) return;
+
+    d3.selectAll('tr').classed("selected", d => {
+      return dataSelected.includes(d)
+    });
+
+    d3.selectAll('td').classed("selected", d => {
+      return dataSelected.includes(d)
+    })
+  }
+
 }
 
 function update(playlist, mood) {
-
-  var dispatcher;
 
   // selectableElements = d3.select(null),
   // dispatcher;
@@ -90,74 +149,18 @@ function update(playlist, mood) {
       .exit()
       .remove();
 
-    //Brushing
-    htmlTable = d3.select('table')
-    table.style("cursor", "crosshair")
-    rows.on("mousedown", brushRow).on("mousemove", brushRow)
-    table.on("mouseup", endBrushing);
+  // function brushRow() {
+  //   d3.select(this).attr("class", "selected");
+  //   let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
+  //   dispatcher.call(dispatch, this, tbody.selectAll("selected").data());
+  // }
 
-    function brushRow() {
-      d3.select(this).attr("class", "selected");
-      let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
-      dispatcher.call(dispatch, this, tbody.selectAll("selected").data());
-    }
-
-    // mouse off function to stop highlighting
-    function endBrushing() {
-      let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
-      tbody.selectAll("selected").attr('table').data();
-      dispatcher.call(dispatch, this, []);
-    }
-        
-     update.selectionDispatcher = function (a) {
-      if (!arguments.length) return dispatcher;
-      dispatcher = a;
-      return update;
-    };
-
-  update.updateSelection = function (dataSelected) {
-    if (arguments.length == false) return;
-
-    d3.selectAll('tr').classed("selected", d => {
-      return dataSelected.includes(d)
-    });
-
-    d3.selectAll('td').classed("selected", d => {
-      return dataSelected.includes(d)
-    })
-  }
-
-    //      var mouseState = false;
-    //      //var dispatcher = d3.dispatch("data", "selectionUpdated");
-
-    //     function selectedRowsDown() {
-    //       mouseState = true;
-    //       let dispatchString =
-    //       Object.getOwnPropertyNames(dispatcher._)[0];
-    //         table.selectAll(".selected").attr("class","");
-    //         var dispatcher = d3.dispatch(dispatchString);
-    //         dispatcher.call(dispatchString, this, []);
-    //     }
-
-    //     //when mouse is moved, start highlighting process
-    //     function selectedRowsMove() {
-    //       if (mouseState) {
-    //         d3.select(this).attr("class", "selected");
-    //         let dispatchString = 
-    //         Object.getOwnPropertyNames(dispatcher._)[0];
-    //           dispatcher.call(dispatchString, this,
-    //             table.selectAll(".selected").data());
-    //       }
-    //     }
-
-    //     rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove)
-
-    //     //when mouse is no longer pressed, stop highlighting
-    //     function endSelection() {
-    //       mouseState = false;
-    //     }
-
-    //     table.on("mouseup", endSelection);
+  // // mouse off function to stop highlighting
+  // function endBrushing() {
+  //   let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
+  //   tbody.selectAll("selected").attr('table').data();
+  //   dispatcher.call(dispatch, this, []);
+  // }
 
     //     // Gets or sets the dispatcher we use for selection events
     //     update.selectionDispatcher = function () {
