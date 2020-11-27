@@ -29,38 +29,35 @@
   <span id='forkongithub'><a href='https://github.com/NEU-DS-4200-F20/project-group-16-spotify-recommendation'>Fork me on GitHub</a></span>
 
   <!-- Writeup -->
+  <h1 style="padding-bottom : 0px; max-width: 700px">Project Team 16: Spotify Music Mood Recommendation</h1>
+
   <div class='content-column'>
-   <h1>Project Team 16: Spotify Music Mood Recommendation</h1>
-    
-    <p><strong>John Barber</strong>, <strong>Aditi Lohe</strong>, <strong>Keshav Sharma</strong></p>
-    
-    <p>Service-Learning Course Project as part of
-	<a href='https://canvas.instructure.com/courses/1781732'>DS 4200 F20: Information Visualization</a>, 
-	taught by <a href='https://cody.khoury.northeastern.edu/'>Prof. Cody Dunne</a>, 
-	<a href='https://visualization.khoury.northeastern.edu/'>Data Visualization @ Khoury</a>, 
-	<a href='https://www.khoury.northeastern.edu/'>Northeastern University</a>.</p>
-    
-    
-    <h1>Abstract</h1>
-    
-    <p>
-      Our project is focused on working with ndoherty.design to work with their PlaylistNinja web app and help create visualizations 
-      to display user data. The overall project will consist of taking into account certain user metrics for personal music tastes 
-      (such as danceability, energy, valence, tempo, popularity, etc.), visualizing them in an easy to read graphic, and providing them 
-      with similar artists and tracks that match their preferences. The idea behind this is to work off Spotify’s already existing 
-      algorithm of selecting new music for their users, but to add a new element of allowing people to see the trends in their saved 
-      songs and find similar ones with more ease.
-    </p>
+    <div class='bio'>
+        <p><strong>John Barber</strong>, <strong>Aditi Lohe</strong>, <strong>Keshav Sharma</strong></p>
+        
+        <p>Service-Learning Course Project as part of
+      <a href='https://canvas.instructure.com/courses/1781732'>DS 4200 F20: Information Visualization</a>, 
+      taught by <a href='https://cody.khoury.northeastern.edu/'>Prof. Cody Dunne</a>, 
+      <a href='https://visualization.khoury.northeastern.edu/'>Data Visualization @ Khoury</a>, 
+      <a href='https://www.khoury.northeastern.edu/'>Northeastern University</a>.</p>
+    </div>
 
-    
-    <h1>Visualization</h1>
-    
-    <p>Include the interactive visualization as part of this page. Static example follows.</p>
-
+    <div class='abstract'>
+      <h1 style="padding : 10px; text-align: left">Abstract</h1>
+      
+      <p>
+        Our project is focused on working with ndoherty.design to work with their PlaylistNinja web app and help create visualizations 
+        to display user data. The overall project will consist of taking into account certain user metrics for personal music tastes 
+        (such as danceability, energy, valence, tempo, popularity, etc.), visualizing them in an easy to read graphic, and providing them 
+        with similar artists and tracks that match their preferences. The idea behind this is to work off Spotify’s already existing 
+        algorithm of selecting new music for their users, but to add a new element of allowing people to see the trends in their saved 
+        songs and find similar ones with more ease.
+      </p>
+    </div>
     
   </div>
   
-  <h1 style='text-align:center;'>Playlist Songs Table</h1>
+  <h1 style='text-align:center;'>Your Playlist Attributes</h1>
 
   <div class='playlist-buttons-holder'>
 
@@ -75,7 +72,11 @@
   <div class='table-radar-holder'>
 
     <!-- TABLE  -->
-    <div class='table-holder' id='table'> </div>
+    <!-- Added code to make text highlighting disabled -->
+    <div class='table-holder' id='table'  style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+    unselectable="on"
+    onselectstart="return false;" 
+    onmousedown="return false;"> </div>
   
     <!-- RADAR CHART -->
     <div class='radar-holder' id='radar'> </div>
@@ -94,7 +95,7 @@
 
   </div>
 
-  <h1> John's Playlist Breakdown</h1>
+  <h1>Your Playlist Mood Breakdown</h1>
 
 
   <div class='piechart-holder'>
@@ -113,7 +114,7 @@
   </div>
   
   <!-- Further writeup -->
-  <div class = 'content-column'>
+  <div class = 'content-column2'>
 
     <h1>Demo Video</h1>
     

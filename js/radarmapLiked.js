@@ -83,7 +83,6 @@
               .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
               .attr("fill", "#737373")
               .text(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
-              console.log(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
            }
           
            series = 0;

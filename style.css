@@ -5,18 +5,33 @@ body {
 	sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2{
 	line-height: 1.2;
-	padding: 10px;
+	padding: 30px;
 	margin: auto;
 	text-align: center;
 	display: block;
 }
 
+h3 {
+	line-height: 1.2;
+	margin: auto;
+	text-align: center;
+	display: block;	
+}
+
 /* Your text should be in a nice narrow column */
 .content-column {
-	max-width: 650px;
+	max-width: 1000px;
 	margin: 40px auto;
+}
+
+.bio {
+	width: 700px;
+}
+
+.abstract {
+	width: 1000px;
 }
 
 .playlist-buttons-holder {
@@ -120,7 +135,6 @@ button:focus {
 /* But your visualization should be full-width and full-height */
 .piechart-holder {
   margin: auto;
-  padding-top: 50px;
   display: flex;
   text-align: center;
 }

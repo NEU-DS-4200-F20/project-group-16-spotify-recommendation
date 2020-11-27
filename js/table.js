@@ -110,9 +110,9 @@ function update(playlist, mood) {
       else {
         d3.select(this).style("background-color", "#7D8CC4");
         selectedRows.push(i);
-        console.log(selectedRows);
         updateRadar(playlist, selectedRows);
       }
+      console.log(selectedRows);
     });
 
     rows.on("mousemove", function(d,i){
