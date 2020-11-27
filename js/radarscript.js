@@ -22,40 +22,22 @@ var mycfg = {
 
 // read both data sets nested in each other
 // apply meanAtt to both and combine into a list of datasets
-function updateRadar(selection) {
-  d3.csv(selection).then(function(likedData) {
-    var likedDataMeans = meanAtt(likedData);
-    var d = [likedDataMeans]; 
-
-  //   console.log(d);
+function updateRadar(playlist, selectedRows) {
+  if (selectedRows.length == 0) {
+    d3.csv(playlist).then(function(likedData) {
+      var likedDataMeans = meanAtt(likedData);
+      var d = [likedDataMeans]; 
 
     RadarChart.draw("#radar", d, mycfg);
+   });
+  }
+  else {
+    var likedDataMeans = meanAtt(selectedRows);
+    var d = [likedDataMeans];
 
-    // function updateRadar(playlistName, selectedData) {
-    //   if (length(selectedData) == 0) {
-    //     d3.csv(playlistName).then(function(likedData) {
-    //       var likedDataMeans = meanAtt(likedData);
-    //       var d = [likedDataMeans]; 
-    
-    //       console.log(d);
-    
-    //       RadarChart.draw("#radar", d, mycfg);
-    
-    //     });
-    //   }
-    
-    //   else {
-    //     var likedDataMeans = meanAtt(selectedData);
-    //     var d = [likedDataMeans]; 
-    
-    //     console.log(d);
-    
-    //     RadarChart.draw("#radar", d, mycfg);
-    
-  });
+    RadarChart.draw("#radar", d, mycfg);
+  }
 }
-
-updateRadar("data/john_liked_songs.csv");
 
 // ////////////////////////////////////////////
 // /////////// Initiate legend ////////////////

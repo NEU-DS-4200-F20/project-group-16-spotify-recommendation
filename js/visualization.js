@@ -9,8 +9,7 @@
     const dispatchString = 'selectionUpdated';
 
 
-    let aditi_liked_songs_table = table()
-    .selectionDispatcher(d3.dispatch(dispatchString));
+    let aditi_liked_songs_table = table();
 
     let john_piechartlegend = piechartLegend();
     let john_piechartLiked = piechartLiked();
@@ -19,8 +18,6 @@
     let john_piechartAccoustic = piechartAccoustic();
     
     //THIS IS TEST CODE - keshav
-
-    //let john_liked_songs_pie = piecharts();
 
   })
 })());
