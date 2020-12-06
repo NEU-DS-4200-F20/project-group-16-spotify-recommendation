@@ -22,9 +22,10 @@ var mycfg = {
 
 // read both data sets nested in each other
 // apply meanAtt to both and combine into a list of datasets
-function updateRadar(playlist, selectedRows) {
+function updateRadar(playlist, mood, selectedRows) {
   if (selectedRows.length == 0) {
     d3.csv(playlist).then(function(likedData) {
+      likedData = filterByMood(likedData, mood);
       var likedDataMeans = meanAtt(likedData);
       var d = [likedDataMeans]; 
 

@@ -37,6 +37,22 @@ function table() {
 
 function update(playlist, mood) {
 
+  if (playlist === "Liked Songs") {
+    playlist = 'data/john_liked_songs.csv';
+  }
+
+  else if (playlist === "Hosting 2020") {
+    playlist = 'data/john_hosting_2020.csv';
+  }
+
+  else if (playlist === "No Other Alternatives") {
+    playlist = 'data/john_alt_2020.csv';
+  }
+
+  else if (playlist === "Midnight Acoustics") {
+    playlist = 'data/john_accoustics_2020.csv';
+  }
+
 
   let selectedRows = []
   // selectableElements = d3.select(null),
@@ -58,7 +74,7 @@ function update(playlist, mood) {
     console.log(updateData);
 
     keys = Object.keys(updateData[0]),
-      allData = data;
+      allData = updateData;
 
     thead.append('tr')
       .enter()
@@ -74,7 +90,7 @@ function update(playlist, mood) {
 
     //creates the rows for tables
     var rows = tbody.selectAll('tr')
-      .data(data)
+      .data(updateData)
       .enter()
       .append('tr');
 
@@ -128,7 +144,7 @@ function update(playlist, mood) {
       mouseState = false;
     });
 
-    updateRadar(playlist, selectedRows);
+    updateRadar(playlist, mood, selectedRows);
 
 
     //var dispatcher = d3.dispatch("data", "selectionUpdated");

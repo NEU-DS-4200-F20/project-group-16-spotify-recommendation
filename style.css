@@ -184,6 +184,12 @@ button:focus {
 	margin: auto
 }
 
+.radar-and-title {
+	height: 500px;
+	text-align: center;
+	margin: auto
+}
+
 .table-holder {
 	height: 400px;
 	width: 600px;

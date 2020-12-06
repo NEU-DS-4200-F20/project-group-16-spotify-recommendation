@@ -108,22 +108,60 @@ if (mood === 'all') {
 }
 else {
     csvData.forEach(element => {
-        if (mood === 'happy') {
+        if (mood === 'happy' && filterByMoodHelper(mood, element)) {
+            console.log('good');
             result.push(element);
         }
-        else if (mood === 'gloomy') {
+        else if (mood === 'gloomy' && filterByMoodHelper(mood, element)) {
             result.push(element);
         }
-        else if (mood === 'bops') {
+        else if (mood === 'bops' && filterByMoodHelper(mood, element)) {
             result.push(element);
         }
-        else if (mood === 'dance') {
+        else if (mood === 'dance' && filterByMoodHelper(mood, element)) {
             result.push(element);
         }
-        else if (mood === 'study') {
+        else if (mood === 'study' && filterByMoodHelper(mood, element)) {
             result.push(element);
         }
     });
 }
 return result;
+}
+
+function filterByMoodHelper(mood, element) { 
+    //Criteria for happy
+    // Energy > .7 | Valence > .7 | Dance > .5
+
+    //Criteria for gloomy
+    //Energy < .7 | Valence < .5 | Dance < .7
+
+    //Criteria for bops
+    //Popularity > .8 | Valence > .6
+
+    //Criteria for dance
+    //Energy > .8 | Dance > .8
+
+    //Criteria for study
+    //Energy < .6 OR Speech > .7 OR Accoustic > .8 
+
+        if (mood === 'happy' && parseFloat(element.energy) > .5 && parseFloat(element.valence) > .6 && parseFloat(element.danceability) > .5) {
+            console.log('filter');
+            return true;
+        }
+        if (mood === 'gloomy' && parseFloat(element.energy) < .6 && parseFloat(element.valence) < .6 && parseFloat(element.danceability) < .5) {
+            return true;
+        }
+        if (mood === 'bops' && parseFloat(element.popularity) > 68 && parseFloat(element.valence) > .6) {
+            return true;
+        }
+        if (mood === 'dance' && parseFloat(element.energy) > .6 && parseFloat(element.danceability) > .6) {
+            return true;
+        }
+        if (mood === 'study' && parseFloat(element.energy) < .6 && parseFloat(element.acousticness) > .8) {
+            return true;
+        }
+        console.log('false');
+
+    return false;
 }
