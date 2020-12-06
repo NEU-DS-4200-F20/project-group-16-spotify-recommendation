@@ -23,6 +23,7 @@ var mycfg = {
 // read both data sets nested in each other
 // apply meanAtt to both and combine into a list of datasets
 function updateRadar(playlist, mood, selectedRows) {
+  console.log(selectedRows);
   if (selectedRows.length == 0) {
     d3.csv(playlist).then(function(likedData) {
       likedData = filterByMood(likedData, mood);
@@ -40,9 +41,9 @@ function updateRadar(playlist, mood, selectedRows) {
   }
 }
 
-// ////////////////////////////////////////////
-// /////////// Initiate legend ////////////////
-// ////////////////////////////////////////////
+////////////////////////////////////////////
+/////////// Initiate legend ////////////////
+////////////////////////////////////////////
 
 var svg = d3.select('#body')
  .selectAll('svg')

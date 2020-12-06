@@ -121,12 +121,12 @@ function update(playlist, mood) {
       if(selectedRows.includes(i)) {
         d3.select(this).style("background-color", "white");
         selectedRows.splice(selectedRows.indexOf(i),1);
-        updateRadar(playlist, selectedRows);
+        updateRadar(playlist, mood, selectedRows);
       }
       else {
         d3.select(this).style("background-color", "#7D8CC4");
         selectedRows.push(i);
-        updateRadar(playlist, selectedRows);
+        updateRadar(playlist, mood, selectedRows);
       }
       console.log(selectedRows);
     });
@@ -136,78 +136,14 @@ function update(playlist, mood) {
           d3.select(this).style("background-color", "#7D8CC4");
           selectedRows.push(i);
           console.log(selectedRows);
-          updateRadar(playlist, selectedRows);
+          updateRadar(playlist, mood, selectedRows);
       }
     });
 
     rows.on("mouseup", function(d,i){
       mouseState = false;
     });
-
+    console.log(selectedRows);
     updateRadar(playlist, mood, selectedRows);
-
-
-    //var dispatcher = d3.dispatch("data", "selectionUpdated");
-
-    // function selectedRowsDown() {
-    //   mouseState = true;
-    //   let dispatchString =
-    //   Object.getOwnPropertyNames(dispatcher._)[0];
-    //     table.selectAll(".selected").attr("class","");
-    //     var dispatcher = d3.dispatch(dispatchString);
-    //     dispatcher.call(dispatchString, this, []);
-    // }
-
-    //when mouse is moved, start highlighting process
-    // function selectedRowsMove() {
-    //   if (mouseState) {
-    //     d3.select(this).attr("class", "selected");
-    //     let dispatchString = 
-    //     Object.getOwnPropertyNames(dispatcher._)[0];
-    //       dispatcher.call(dispatchString, this,
-    //         table.selectAll(".selected").data());
-    //   }
-    // }
-
-    //when mouse is no longer pressed, stop highlighting
-    // function endSelection() {
-    //   mouseState = false;
-    // }
-
-    // table.on("mouseup", endSelection);
-
-
-    // function brushRow() {
-    //   d3.select(this).attr("class", "selected");
-    //   let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
-    //   dispatcher.call(dispatch, this, tbody.selectAll("selected").data());
-    // }
-
-    // // mouse off function to stop highlighting
-    // function endBrushing() {
-    //   let dispatch = Object.getOwnPropertyNames(dispatcher._)[0];
-    //   tbody.selectAll("selected").attr('table').data();
-    //   dispatcher.call(dispatch, this, []);
-    // }
-
-    //     // Gets or sets the dispatcher we use for selection events
-    //     update.selectionDispatcher = function () {
-    //       if (!arguments.length) return dispatcher;
-    //       dispatcher;
-    //       return chart;
-    //     };
-
-    //     // Given selected data from another visualization 
-    //     // select the relevant elements here (linking)
-    //     update.updateSelection = function (selectedData) {
-    //       if (!arguments.length) return
-
-    //       // Select an element if its datum was selected
-    //       selectableElements.classed('selected', d =>
-    //         selectedData.includes(d)
-
-    //       );
-    //     };
-
   });
 }
