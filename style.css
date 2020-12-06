@@ -36,16 +36,7 @@ h3 {
 
 .abstract {
 	width: 1000px;
-}
-
-.playlist-buttons-holder {
-	display: flex;
-	margin: auto;
-	border-radius: 10px;
-	border: 5px solid rgb(186, 186, 192);
-	width: 800px;
-	height: 60px;
-}
+} 
 
 button {
 	margin: auto;
@@ -54,8 +45,9 @@ button {
 }
 
 button:focus {
-	background-color: #A9BCD0;
 	border-color: white;
+	text-decoration:underline;
+	font-weight: bold;
 }
 
 #piechartLiked {
@@ -144,8 +136,6 @@ button:focus {
 }
 
 
-
-
 .piechartlegend-holder {
 	width: 100%;
 	height: 100%;
@@ -217,11 +207,11 @@ button:focus {
   }
 
 .mood-buttons-holder {
+	padding-top: 10px;
 	display: flex;
 	margin: auto;
 	border-radius: 10px;
-	border: 5px solid rgb(186, 186, 192);
-	width: 800px;
+	width: 750px;
 	height: 60px;
 }
 
@@ -229,11 +219,78 @@ button:focus {
 	display: flex;
 	margin: auto;
 	border-radius: 10px;
-	border: 5px solid rgb(186, 186, 192);
 	width: 800px;
 	height: 60px;
 }
 
+#happy-button {
+	background-color: #f3d78b;
+	border-radius: 10px 0px 0px 10px;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#gloomy-button {
+	background-color: #897ca0;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#bops-button {
+	background-color: #9bc2d3;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#dance-button {
+	background-color: #f1a5be;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#study-button {
+	background-color: #f3a695;
+	border-radius: 0px 10px 10px 0px;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#liked-button {
+	background-color: #DEECEF;
+	border-radius: 10px 0px 0px 10px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#hosting-button {
+	background-color: #DEECEF;
+	border-radius: 0px 0px 0px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#alt-button {
+	background-color: #DEECEF;
+	border-radius: 0px 0px 0px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#acoustic-button {
+	background-color: #DEECEF;
+	border-radius: 0px 10px 10px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
 
 
 

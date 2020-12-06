@@ -89,14 +89,26 @@
 
   <div class='playlist-buttons-holder'>
 
-    <button onclick="update('data/john_liked_songs.csv','all'); document.getElementById('current-playlist').innerHTML = 'Liked Songs'">Liked Songs</button>
-    <button onclick="update('data/john_hosting_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Hosting 2020'">Hosting 2020</button>
-    <button onclick="update('data/john_alt_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'No Other Alternatives'">No Other Alternatives</button>
-    <button onclick="update('data/john_accoustics_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Midnight Acoustics'">Midnight Acoustics</button>
+    <button id='liked-button' onclick="update('data/john_liked_songs.csv','all'); document.getElementById('current-playlist').innerHTML = 'Liked Songs'">Liked Songs</button>
+    <button id='hosting-button' onclick="update('data/john_hosting_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Hosting 2020'">Hosting 2020</button>
+    <button id='alt-button' onclick="update('data/john_alt_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'No Other Alternatives'">No Other Alternatives</button>
+    <button id='acoustic-button' onclick="update('data/john_accoustics_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Midnight Acoustics'">Midnight Acoustics</button>
 
     
 
   </div>
+
+  <div class='mood-buttons-holder'>
+
+    <button id='happy-button' onclick="update(document.getElementById('current-playlist').textContent,'happy')">Happy</button>
+    <button id='gloomy-button' onclick="update(document.getElementById('current-playlist').textContent, 'gloomy')">Gloomy</button>
+    <button id='bops-button' onclick="update(document.getElementById('current-playlist').textContent,'bops')">Bops</button>
+    <button id='dance-button' onclick="update(document.getElementById('current-playlist').textContent,'dance')">Dance</button>
+    <button id='study-button' onclick="update(document.getElementById('current-playlist').textContent,'study')">Study</button>
+
+
+  </div>
+
 
   <!-- <div class='radar abstract'>
     <h3 style="text-align: left">How to use the radar map</h3>
@@ -128,17 +140,6 @@
     
 
     
-  </div>
-
-  <div class='mood-buttons-holder'>
-
-    <button onclick="update(document.getElementById('current-playlist').textContent,'happy')">Happy</button>
-    <button onclick="update(document.getElementById('current-playlist').textContent, 'gloomy')">Gloomy</button>
-    <button onclick="update(document.getElementById('current-playlist').textContent,'bops')">Bops</button>
-    <button onclick="update(document.getElementById('current-playlist').textContent,'dance')">Dance</button>
-    <button onclick="update(document.getElementById('current-playlist').textContent,'study')">Study</button>
-
-
   </div>
 
   <h1>Your Playlist Mood Breakdown</h1>
