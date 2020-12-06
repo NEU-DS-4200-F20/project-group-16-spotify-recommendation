@@ -48,11 +48,39 @@
       <p>
         Our project is focused on working with ndoherty.design to work with their PlaylistNinja web app and help create visualizations 
         to display user data. The overall project will consist of taking into account certain user metrics for personal music tastes 
-        (such as danceability, energy, valence, tempo, popularity, etc.), visualizing them in an easy to read graphic, and providing them 
-        with similar artists and tracks that match their preferences. The idea behind this is to work off Spotify’s already existing 
-        algorithm of selecting new music for their users, but to add a new element of allowing people to see the trends in their saved 
-        songs and find similar ones with more ease.
+        (such as danceability, energy, valence, liveness, popularity, etc.), visualizing them in an easy to read graphic, and providing 
+        them with a set of visualizations that will allow them to understand and view patterns in their preferences. The idea behind 
+        this is to work off Spotify’s already existing algorithm of selecting new music for their users, but to add a new element of 
+        allowing people to see the trends in their saved songs and each of their playlists.
+
       </p>
+    </div>
+
+    <div class='visualizationUse'>
+      <h3 style="padding : 10px; text-align: left">How to use our Visualization</h3>
+      <p>
+        Below you will see a playlist bar, a table, a rdar chart, and a collection of donut charts. All of these will help you to 
+        better understand the trends in your music. 
+      </p>
+        
+        <p>
+        Use the playlist bar to select which set of songs you wish to see– the default is "Liked Songs". Once you hit a button, the 
+        table will display those set of songs and the radar chart will display the averaged metrics of all the songs in that playlist.
+      </p>
+
+      <p>
+        Click on songs in the table to select them and view the metrics for them in particular. Click again to unselect or reclick the 
+        playlist button to completely reset.
+      </p>
+
+      <p>
+        Below the table and radar chart, a collection of donut charts are displayed. These are here to help show the distribution of 
+        moods in each of your playlists. Hover over a partic color to see the number of songs you have for a specific mood, or view the 
+        default that shows the total number of songs present in each playlist.
+      </p>
+
+      <p>Hope you enjoy!</p>
+
     </div>
     
   </div>
@@ -62,15 +90,15 @@
   <div class='playlist-buttons-holder'>
 
     <button class='likedsongsbutton' onclick="update('data/john_liked_songs.csv','all')">Liked Songs</button>
-    <button onclick="update('data/john_accoustics_2020.csv','all')">Midnight Acoustics</button>
-    <button onclick="update('data/john_alt_2020.csv','all')">No Other Alternatives</button>
     <button onclick="update('data/john_hosting_2020.csv','all')">Hosting 2020</button>
+    <button onclick="update('data/john_alt_2020.csv','all')">No Other Alternatives</button>
+    <button onclick="update('data/john_accoustics_2020.csv','all')">Midnight Acoustics</button>
 
     
 
   </div>
 
-  <div class='radar abstract'>
+  <!-- <div class='radar abstract'>
     <h3 style="text-align: left">How to use the radar map</h3>
     
     <p>
@@ -78,7 +106,7 @@
       Selecting one song from the table displays the attributes of just that song. 
       Upon selecting multiple songs from the table, the radar map displays the mean attributes of your selection.  Click on something again to unselect it or click on a button to reset all selections.
     </p>
-  </div>
+  </div> -->
 
   
   <div class='table-radar-holder'>
@@ -143,6 +171,37 @@
     <h1>Visualization explanation</h1>
     
     <p>Replace with a brief explanation (can be copied from the paper) and linked presentation slides.</p>
+
+    <p>
+      Our visualizations consist of a table, a radar chart, and a collection of donut charts. All of these visualizations come together 
+      to create an informative experience that allows a user to better understand their personal music data. The table is accompanied by 
+      a playlist bar that allows the user to select which collection of songs they wish the table to display. Once a playlist is selected, 
+      the table then shows all of the songs currently contained in that playlist. The table is scrollable and selectable. When no songs 
+      have been selected, the radar chart to the right of the table shows the metrics of the entire playlist averaged together. When a 
+      user starts to select songs, the radar chart changes to show only the metric averages of the highlighted songs instead. 
+    </p>
+    <p>
+      The radar chart allows for a user to better visualize the patterns in their music. The metrics the radar chart displays are a song’s 
+danceability, valence, liveness, popularity, acousticness, spechiness, and energy. This radar chart is linked to the table. While 
+nothing in the radar chart is selectable, it changes when the items in the table are selected. This allows for an easy and intuitive 
+way for a user to view their playlist metrics. To view in more detail, you can hover over one of the points in the radar chart to view 
+the exact percentage of that metric.
+    </p>
+    <p>
+Our last visualization is a collection of donut charts below the other two visualizations. There is a separate donut chart for each 
+playlist a user has. The purpose of these is to allow the user to visualize the mood distribution in all of the songs they have for 
+each of their playlists. To gather more specific data, you can hover over any color in one chart to view the exact number of songs per 
+mood. Otherwise, the default view shows the total number of songs contained in that particular playlist. There is a legend below the 
+charts that shows what color represents each mood. We changed our initial approach of using pie charts to using donut charts instead 
+because we believed that it allowed for more information to be conveyed at once. Now with the donut charts, we are able to display the 
+number of songs automatically while still having an accurate display of the distribution of every mood present in a playlist. 
+</p>
+<p>
+The pie charts don’t link to the other two visualizations because we believed that this would create too much confusion. However, 
+looking at all of the visualizations together, it becomes a very holistic and efficient way for a user to come and understand their 
+personal music data at a glance. There is also enough flexibility, allowing users to choose which songs they wish to see the metrics 
+of and what music moods they want the details of.
+    </p>
     
     <h1>Acknowledgments</h1>
 
