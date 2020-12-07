@@ -331,6 +331,14 @@ button:focus {
 	bottom:1px;
 	top:auto;
 }
+
+#demo-video {
+	width: 1000px;
+	margin: auto;
+	display: block;	
+	text-align: center;
+}
+
 @media screen and (min-width:1000px){
 	#forkongithub{
 		position:absolute;
