@@ -26,6 +26,12 @@ h3 {
 	margin: 40px auto;
 }
 
+.content-column2 {
+	width: 1000px;
+	margin: auto;
+	display: block;	
+}
+
 .bio {
 	width: 700px;
 }
