@@ -50,12 +50,6 @@ button {
 
 }
 
-button:focus {
-	border-color: white;
-	text-decoration:underline;
-	font-weight: bold;
-}
-
 #piechartLiked {
 	position: relative;
 	margin: auto;
@@ -213,7 +207,8 @@ button:focus {
   }
 
 .mood-buttons-holder {
-	padding-top: 10px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 	display: flex;
 	margin: auto;
 	border-radius: 10px;
@@ -226,7 +221,7 @@ button:focus {
 	margin: auto;
 	border-radius: 10px;
 	width: 800px;
-	height: 60px;
+	height: 75px;
 }
 
 #happy-button {

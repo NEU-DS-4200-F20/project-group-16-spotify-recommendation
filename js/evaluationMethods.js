@@ -109,7 +109,6 @@ if (mood === 'all') {
 else {
     csvData.forEach(element => {
         if (mood === 'happy' && filterByMoodHelper(mood, element)) {
-            console.log('good');
             result.push(element);
         }
         else if (mood === 'gloomy' && filterByMoodHelper(mood, element)) {
@@ -161,7 +160,90 @@ function filterByMoodHelper(mood, element) {
         if (mood === 'study' && parseFloat(element.energy) < .6 && parseFloat(element.acousticness) > .8) {
             return true;
         }
-        console.log('false');
-
     return false;
+}
+
+function buttonSelection(playlist, mood) {
+    if (playlist === 'Liked Songs') {
+        document.getElementById('liked-button').style.fontWeight = 'bold';
+        document.getElementById('hosting-button').style.fontWeight = 'normal';
+        document.getElementById('alt-button').style.fontWeight = 'normal';
+        document.getElementById('acoustic-button').style.fontWeight = 'normal';
+
+        document.getElementById('liked-button').style.height = '75px';
+        document.getElementById('hosting-button').style.height = '60px';
+        document.getElementById('alt-button').style.height = '60px';
+        document.getElementById('acoustic-button').style.height = '60px';
+    }
+    else if (playlist === 'Hosting 2020') {
+        document.getElementById('liked-button').style.fontWeight = 'normal';
+        document.getElementById('hosting-button').style.fontWeight = 'bold';
+        document.getElementById('alt-button').style.fontWeight = 'normal';
+        document.getElementById('acoustic-button').style.fontWeight = 'normal';
+
+        document.getElementById('liked-button').style.height = '60px';
+        document.getElementById('hosting-button').style.height = '70px';
+        document.getElementById('alt-button').style.height = '60px';
+        document.getElementById('acoustic-button').style.height = '60px';
+    }
+    else if (playlist === 'No Other Alternatives') {
+        document.getElementById('liked-button').style.fontWeight = 'normal';
+        document.getElementById('hosting-button').style.fontWeight = 'normal';
+        document.getElementById('alt-button').style.fontWeight = 'bold';
+        document.getElementById('acoustic-button').style.fontWeight = 'normal';
+
+        document.getElementById('liked-button').style.height = '60px';
+        document.getElementById('hosting-button').style.height = '60px';
+        document.getElementById('alt-button').style.height = '70px';
+        document.getElementById('acoustic-button').style.height = '60px';
+    }
+    else if (playlist === 'Midnight Acoustics') {
+        document.getElementById('liked-button').style.fontWeight = 'normal';
+        document.getElementById('hosting-button').style.fontWeight = 'normal';
+        document.getElementById('alt-button').style.fontWeight = 'normal';
+        document.getElementById('acoustic-button').style.fontWeight = 'bold';    
+
+        document.getElementById('liked-button').style.height = '60px';
+        document.getElementById('hosting-button').style.height = '60px';
+        document.getElementById('alt-button').style.height = '60px';
+        document.getElementById('acoustic-button').style.height = '70px';
+    }
+
+    document.getElementById('happy-button').style.fontWeight = 'normal';
+    document.getElementById('gloomy-button').style.fontWeight = 'normal';
+    document.getElementById('bops-button').style.fontWeight = 'normal';
+    document.getElementById('dance-button').style.fontWeight = 'normal';
+    document.getElementById('study-button').style.fontWeight = 'normal';
+
+    document.getElementById('happy-button').style.height = '50px';
+    document.getElementById('gloomy-button').style.height = '50px';
+    document.getElementById('bops-button').style.height = '50px';
+    document.getElementById('dance-button').style.height = '50px';
+    document.getElementById('study-button').style.height = '50px';
+
+    if (!(mood === 'none')) {   
+        if (mood === 'Happy') {
+            document.getElementById('happy-button').style.fontWeight = 'bold';
+            document.getElementById('happy-button').style.height = '60px';
+        }
+        else if (mood === 'Gloomy') {
+            document.getElementById('gloomy-button').style.fontWeight = 'bold';
+            document.getElementById('gloomy-button').style.height = '60px';
+        }
+
+        else if (mood === 'Bops') {
+            document.getElementById('bops-button').style.fontWeight = 'bold';
+            document.getElementById('bops-button').style.height = '60px';
+        }
+
+        else if (mood === 'Dance') {
+            document.getElementById('dance-button').style.fontWeight = 'bold';
+            document.getElementById('dance-button').style.height = '60px';
+        }
+
+        else if (mood === 'Study') {
+            document.getElementById('study-button').style.fontWeight = 'bold';
+            document.getElementById('study-button').style.height = '60px';
+        }
+    }
 }
