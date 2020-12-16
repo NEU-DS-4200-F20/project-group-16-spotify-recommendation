@@ -140,20 +140,20 @@
                              })
                             .style("fill", function(j, i){return cfg.color(series)})
                             .style("fill-opacity", cfg.opacityArea)
-                            .on('mouseover', function (d){
-                                               z = "polygon."+d3.select(this).attr("class");
-                                               g.selectAll("polygon")
-                                                .transition(200)
-                                                .style("fill-opacity", 0.1); 
-                                               g.selectAll(z)
-                                                .transition(200)
-                                                .style("fill-opacity", .7);
-                                             })
-                            .on('mouseout', function(){
-                                               g.selectAll("polygon")
-                                                .transition(200)
-                                                .style("fill-opacity", cfg.opacityArea);
-                            });
+                            // .on('mouseover', function (d){
+                            //                    z = "polygon."+d3.select(this).attr("class");
+                            //                    g.selectAll("polygon")
+                            //                     .transition(200)
+                            //                     .style("fill-opacity", 0.1); 
+                            //                    g.selectAll(z)
+                            //                     .transition(200)
+                            //                     .style("fill-opacity", .7);
+                            //                  })
+                            // .on('mouseout', function(){
+                            //                    g.selectAll("polygon")
+                            //                     .transition(200)
+                            //                     .style("fill-opacity", cfg.opacityArea);
+                            // });
              series++;
            });
            series=0;
@@ -178,33 +178,33 @@
                })
                .attr("data-id", function(j){return j.axis})
                .style("fill", cfg.color(series)).style("fill-opacity", .9)
-               .on('mouseover', function (d){
-                           newX =  parseFloat(d3.select(this).attr('cx'));
-                           newY =  parseFloat(d3.select(this).attr('cy'));
+              //  .on('mouseover', function (d){
+              //              newX =  parseFloat(d3.select(this).attr('cx'));
+              //              newY =  parseFloat(d3.select(this).attr('cy'));
                           
-                           tooltip
-                               .attr('x', newX)
-                               .attr('y', newY)
-                               .text(Format(d.value))
-                               .transition(200)
-                               .style('opacity', 0);
+              //              tooltip
+              //                  .attr('x', newX)
+              //                  .attr('y', newY)
+              //                  .text(Format(d.value))
+              //                  .transition(200)
+              //                  .style('opacity', 0);
                               
-                           z = "polygon."+d3.select(this).attr("class");
-                           g.selectAll("polygon")
-                               .transition(200)
-                               .style("fill-opacity", 0.1); 
-                           g.selectAll(z)
-                               .transition(10)
-                               .style("fill-opacity", .7);
-                         })
-               .on('mouseout', function(){
-                           tooltip
-                               .transition(200)
-                               .style('opacity', 0);
-                           g.selectAll("polygon")
-                               .transition(200)
-                               .style("fill-opacity", cfg.opacityArea);
-                         })
+              //              z = "polygon."+d3.select(this).attr("class");
+              //              g.selectAll("polygon")
+              //                  .transition(200)
+              //                  .style("fill-opacity", 0.1); 
+              //              g.selectAll(z)
+              //                  .transition(10)
+              //                  .style("fill-opacity", .7);
+              //            })
+              //  .on('mouseout', function(){
+              //              tooltip
+              //                  .transition(200)
+              //                  .style('opacity', 0);
+              //              g.selectAll("polygon")
+              //                  .transition(200)
+              //                  .style("fill-opacity", cfg.opacityArea);
+              //            })
                .append("svg:title")
                .text(function(j){return Math.max(j.value, 0)});
     
