@@ -116,31 +116,31 @@ function update(playlist, mood) {
     // rows.on("mousedown",selectedRowsDown).on("mousemove",selectedRowsMove);
     // table.on("mouseup", endSelection);
 
-    rows.on("mousedown", function(d,i){
+    rows.on("mousedown", function(d,f){
       mouseState = true;
-      if(selectedRows.includes(i)) {
+      if(selectedRows.includes(f)) {
         d3.select(this).style("background-color", "white");
-        selectedRows.splice(selectedRows.indexOf(i),1);
+        selectedRows.splice(selectedRows.indexOf(f),1);
         updateRadar(playlist, mood, selectedRows);
       }
       else {
         d3.select(this).style("background-color", "#7D8CC4");
-        selectedRows.push(i);
+        selectedRows.push(f);
         updateRadar(playlist, mood, selectedRows);
       }
       console.log(selectedRows);
     });
 
-    rows.on("mousemove", function(d,i){
-      if(mouseState && !selectedRows.includes(i)) {
+    rows.on("mousemove", function(d,f){
+      if(mouseState && !selectedRows.includes(f)) {
           d3.select(this).style("background-color", "#7D8CC4");
-          selectedRows.push(i);
+          selectedRows.push(f);
           console.log(selectedRows);
           updateRadar(playlist, mood, selectedRows);
       }
     });
 
-    rows.on("mouseup", function(d,i){
+    rows.on("mouseup", function(d,f){
       mouseState = false;
     });
     console.log(selectedRows);

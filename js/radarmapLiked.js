@@ -70,20 +70,20 @@
       
            //Text indicating at what % each level is
            for(var j=0; j<cfg.levels; j++){
-             var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
-             g.selectAll(".levels")
-              .data([1]) //dummy data
-              .enter()
-              .append("svg:text")
-              .attr("x", function(d){return (levelFactor*(1-cfg.factor*Math.sin(0)));})
-              .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(0));})
-              .attr("class", "legend")
-              .style("font-family", "sans-serif")
-              .style("font-size", "10px")
-              .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
-              .attr("fill", "#737373")
-              .text(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
-           }
+            var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
+            g.selectAll(".levels")
+             .data([1]) //dummy data
+             .enter()
+             .append("svg:text")
+             .attr("x", function(d){return (levelFactor*(1-cfg.factor*Math.sin(0)));})
+             .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(0));})
+             .attr("class", "legend")
+             .style("font-family", "sans-serif")
+             .style("font-size", "10px")
+             .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
+             .attr("fill", "#737373")
+             .text(((j+1)*cfg.maxValue/cfg.levels).toFixed(2));
+          }
           
            series = 0;
       
@@ -179,22 +179,22 @@
                .attr("data-id", function(j){return j.axis})
                .style("fill", cfg.color(series)).style("fill-opacity", .9)
                .on('mouseover', function (d){
-                           newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-                           newY =  parseFloat(d3.select(this).attr('cy')) - 5;
+                           newX =  parseFloat(d3.select(this).attr('cx'));
+                           newY =  parseFloat(d3.select(this).attr('cy'));
                           
                            tooltip
                                .attr('x', newX)
                                .attr('y', newY)
                                .text(Format(d.value))
                                .transition(200)
-                               .style('opacity', 1);
+                               .style('opacity', 0);
                               
                            z = "polygon."+d3.select(this).attr("class");
                            g.selectAll("polygon")
                                .transition(200)
                                .style("fill-opacity", 0.1); 
                            g.selectAll(z)
-                               .transition(200)
+                               .transition(10)
                                .style("fill-opacity", .7);
                          })
                .on('mouseout', function(){
