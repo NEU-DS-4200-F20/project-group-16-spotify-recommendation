@@ -2,7 +2,8 @@
 
 This repository is your starting point for your project. Please look through all these materials so you know how to organize your project.
 
-Link to your GitHub pages website: https://github.com/NEU-DS-4200-F20/project-group-16-spotify-recommendation 
+Link to your GitHub pages website: https://neu-ds-4200-f20.github.io/project-group-16-spotify-recommendation/
+Link to your GitHub Pages repository: https://github.com/NEU-DS-4200-F20/project-group-16-spotify-recommendation 
 
 # Aim of the assignment
 
