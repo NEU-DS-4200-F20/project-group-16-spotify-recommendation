@@ -5,21 +5,296 @@ body {
 	sans-serif;
 }
 
-h1, h2, h3 {
-	line-height: 1.2
+h1, h2{
+	line-height: 1.2;
+	padding: 30px;
+	margin: auto;
+	text-align: center;
+	display: block;
+}
+
+h3 {
+	line-height: 1.2;
+	margin: auto;
+	text-align: center;
+	display: block;	
 }
 
 /* Your text should be in a nice narrow column */
 .content-column {
-	max-width: 650px;
+	max-width: 1000px;
 	margin: 40px auto;
 }
 
-/* But your visualization should be full-width and full-height */
-.vis-holder {
-  width: 100%;
-  height: 100%;
+.content-column2 {
+	width: 1000px;
+	margin: auto;
+	display: block;	
 }
+
+.bio {
+	width: 700px;
+}
+
+.abstract {
+	width: 1000px;
+}
+
+.abstract {
+	width: 1000px;
+} 
+
+button {
+	margin: auto;
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans", sans-serif;
+
+}
+
+#piechartLiked {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipLiked {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartHosting {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipHosting {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartAccoustic {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipAcoustic {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+#piechartAlternative {
+	position: relative;
+	margin: auto;
+}
+
+.tooltipAlt {
+	background: #eee;
+	border-radius: 10px;
+	color: #333;
+	display: none;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	top: 115px;
+	left: 100px;
+	z-index: 10;
+}
+
+
+
+/* But your visualization should be full-width and full-height */
+.piechart-holder {
+  margin: auto;
+  display: flex;
+  text-align: center;
+}
+
+
+.piechartlegend-holder {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+
+.piechartLegend {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+  }
+::-webkit-scrollbar-thumb {
+	width: 10px;
+	background: #778899;
+    border-radius: 10px;
+  }
+::-webkit-scrollbar-track {
+	width: 10px;
+  }
+  
+.table-radar-holder {
+	display: flex;
+	margin: auto;
+}
+
+.radar-holder {
+	text-align: center;
+	margin: auto
+}
+
+.radar-and-title {
+	height: 500px;
+	text-align: center;
+	margin: auto
+}
+
+.table-holder {
+	height: 400px;
+	width: 600px;
+	overflow-y: scroll;
+	margin: auto;
+	border-radius: 10px;
+	border: 5px solid rgb(186, 186, 192);
+}
+
+.table-holder tbody{
+  display: block;
+}
+
+.table-holder thead tr {
+	display: block;
+	background: #DEECEF;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.table-holder th, .table-holder td {
+	text-align: center;
+	width: 600px;
+  }
+
+.mood-buttons-holder {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	display: flex;
+	margin: auto;
+	border-radius: 10px;
+	width: 750px;
+	height: 60px;
+}
+
+.playlist-buttons-holder {
+	display: flex;
+	margin: auto;
+	border-radius: 10px;
+	width: 800px;
+	height: 75px;
+}
+
+#happy-button {
+	background-color: #f3d78b;
+	border-radius: 10px 0px 0px 10px;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#gloomy-button {
+	background-color: #897ca0;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#bops-button {
+	background-color: #9bc2d3;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#dance-button {
+	background-color: #f1a5be;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#study-button {
+	background-color: #f3a695;
+	border-radius: 0px 10px 10px 0px;
+	border-color: black;
+	height: 50px;
+	width: 150px;
+}
+
+#liked-button {
+	background-color: #DEECEF;
+	border-radius: 10px 0px 0px 10px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#hosting-button {
+	background-color: #DEECEF;
+	border-radius: 0px 0px 0px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#alt-button {
+	background-color: #DEECEF;
+	border-radius: 0px 0px 0px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+#acoustic-button {
+	background-color: #DEECEF;
+	border-radius: 0px 10px 10px 0px;
+	border-color: black;
+	height: 60px;
+	width: 200px;
+}
+
+
+
 
 .vis-svg {
   background-color: #f4f1f0;
@@ -57,6 +332,14 @@ h1, h2, h3 {
 	bottom:1px;
 	top:auto;
 }
+
+#demo-video {
+	width: 1000px;
+	margin: auto;
+	display: block;	
+	text-align: center;
+}
+
 @media screen and (min-width:1000px){
 	#forkongithub{
 		position:absolute;

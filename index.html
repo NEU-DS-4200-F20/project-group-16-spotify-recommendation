@@ -6,7 +6,7 @@
   <meta charset='utf-8'>
 
   <!-- Title -->
-  <title>Project Team ##: Topic, DS 4200 F20</title>
+  <title>Project Team 16: Spotify Music Mood Recommendation</title>
   
   <!-- CSS Styling -->
   <link rel='stylesheet' href='style.css'>
@@ -26,73 +26,195 @@
 <body>
 
   <!-- Update this with your GitHub repo URL -->
-  <span id='forkongithub'><a href='https://github.com/NEU-DS-4200-F20-Staff/Project'>Fork me on GitHub</a></span>
+  <span id='forkongithub'><a href='https://github.com/NEU-DS-4200-F20/project-group-16-spotify-recommendation'>Fork me on GitHub</a></span>
 
   <!-- Writeup -->
+  <h1 style="padding-bottom : 0px; max-width: 700px">Project Team 16: Spotify Music Mood Recommendation</h1>
+
   <div class='content-column'>
-   <h1>Project Team ##: Topic, DS4200 F20</h1>
-    
-    <p><strong>Student One</strong>, <strong>Student Two</strong>, <strong>Student Three</strong></p>
-    
-    <p>Service-Learning Course Project as part of
-	<a href='https://canvas.instructure.com/courses/1781732'>DS 4200 F20: Information Visualization</a>, 
-	taught by <a href='https://cody.khoury.northeastern.edu/'>Prof. Cody Dunne</a>, 
-	<a href='https://visualization.khoury.northeastern.edu/'>Data Visualization @ Khoury</a>, 
-	<a href='https://www.khoury.northeastern.edu/'>Northeastern University</a>.</p>
-    
-    
-    <h1>Abstract</h1>
-    
-    <p>Replace with your paper abstract.</p>
+    <div class='bio'>
+        <p><strong>John Barber</strong>, <strong>Aditi Lohe</strong>, <strong>Keshav Sharma</strong></p>
+        
+        <p>Service-Learning Course Project as part of
+      <a href='https://canvas.instructure.com/courses/1781732'>DS 4200 F20: Information Visualization</a>, 
+      taught by <a href='https://cody.khoury.northeastern.edu/'>Prof. Cody Dunne</a>, 
+      <a href='https://visualization.khoury.northeastern.edu/'>Data Visualization @ Khoury</a>, 
+      <a href='https://www.khoury.northeastern.edu/'>Northeastern University</a>.</p>
+    </div>
 
-    
-    <h1>Visualization</h1>
-    
-    <p>Include the interactive visualization as part of this page. Static example follows.</p>
+    <div class='abstract'>
+      <h1 style="padding : 10px; text-align: left">Abstract</h1>
+      
+      <p>
+        Our project is focused on working with ndoherty.design to work with their PlaylistNinja web app and help create visualizations 
+        to display user data. The overall project will consist of taking into account certain user metrics for personal music tastes 
+        (such as danceability, energy, valence, liveness, popularity, etc.), visualizing them in an easy to read graphic, and providing 
+        them with a set of visualizations that will allow them to understand and view patterns in their preferences. The idea behind 
+        this is to work off Spotify’s already existing algorithm of selecting new music for their users, but to add a new element of 
+        allowing people to see the trends in their saved songs and each of their playlists.
 
+      </p>
+    </div>
+
+    <div class='visualizationUse'>
+      <h3 style="padding : 10px; text-align: left">How to use our Visualization</h3>
+      <p>
+        Below you will see a playlist bar, a mood bar, a table, a radar chart, and a collection of donut charts. All of these will help you to 
+        better understand the trends in your music. 
+      </p>
+        
+        <p>
+        Use the playlist bar and mood bar to select which set of songs you wish to see– the default is "Liked Songs". Once you hit a button, the 
+        table will display those set of songs and the radar chart will display the averaged metrics of all the songs in that playlist. Hover over
+        a particular point in the radar map to see the exact metric value.
+      </p>
+
+      <p>
+        Filter further by selecting a specific mood to see or click on songs in the table to select them and view the metrics for them in particular. Click again to unselect or reclick the 
+        playlist button to completely reset. The current playlist being displayed can be noted by the label under the radar chart.
+      </p>
+
+      <p>
+        Below the table and radar chart, a collection of donut charts are displayed. These are here to help show the distribution of 
+        moods in each of your playlists. Hover over a particular color to see the number of songs you have for that specific mood, or view the 
+        default that shows the total number of songs present in each playlist.
+      </p>
+
+      <p>Hope you enjoy!</p>
+
+    </div>
     
   </div>
   
-  <!-- Visualization goes here -->
-  <div class='vis-holder'>
+  <h1 style='text-align:center;'>Your Playlist Attributes</h1>
+
+  <div class='playlist-buttons-holder'>
+
+    <button id='liked-button' onclick="update('data/john_liked_songs.csv','all'); document.getElementById('current-playlist').innerHTML = 'Liked Songs'; buttonSelection('Liked Songs', 'none')">Liked Songs</button>
+    <button id='hosting-button' onclick="update('data/john_hosting_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Hosting 2020'; buttonSelection('Hosting 2020', 'none')">Hosting 2020</button>
+    <button id='alt-button' onclick="update('data/john_alt_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'No Other Alternatives'; buttonSelection('No Other Alternatives', 'none')">No Other Alternatives</button>
+    <button id='acoustic-button' onclick="update('data/john_accoustics_2020.csv','all'); document.getElementById('current-playlist').innerHTML = 'Midnight Acoustics'; buttonSelection('Midnight Acoustics', 'none')">Midnight Acoustics</button>
+
+    
+
+  </div>
+
+  <div class='mood-buttons-holder'>
+
+    <button id='happy-button' onclick="update(document.getElementById('current-playlist').textContent,'happy'); buttonSelection(document.getElementById('current-playlist').textContent, 'Happy')">Happy</button>
+    <button id='gloomy-button' onclick="update(document.getElementById('current-playlist').textContent, 'gloomy'); buttonSelection(document.getElementById('current-playlist').textContent, 'Gloomy')">Gloomy</button>
+    <button id='bops-button' onclick="update(document.getElementById('current-playlist').textContent,'bops'); buttonSelection(document.getElementById('current-playlist').textContent, 'Bops')">Bops</button>
+    <button id='dance-button' onclick="update(document.getElementById('current-playlist').textContent,'dance'); buttonSelection(document.getElementById('current-playlist').textContent, 'Dance')">Dance</button>
+    <button id='study-button' onclick="update(document.getElementById('current-playlist').textContent,'study'); buttonSelection(document.getElementById('current-playlist').textContent, 'Study')">Study</button>
+
+
+  </div>
+
+
+  <!-- <div class='radar abstract'>
+    <h3 style="text-align: left">How to use the radar map</h3>
+    
+    <p>
+      Selecting a playlist from the options above displays the mean attributes of that playlist in the radar map. 
+      Selecting one song from the table displays the attributes of just that song. 
+      Upon selecting multiple songs from the table, the radar map displays the mean attributes of your selection.  Click on something again to unselect it or click on a button to reset all selections.
+    </p>
+  </div> -->
+
+  
+  <div class='table-radar-holder'>
+
+    <!-- TABLE  -->
+    <!-- Added code to make text highlighting disabled -->
+    <div class='table-holder' id='table'  style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+    unselectable="on"
+    onselectstart="return false;" 
+    onmousedown="return false;"> </div>
+  
+    <!-- RADAR CHART -->
+    <div class='radar-and-title'>
+      <div class='radar-holder' id='radar'> </div>
+      <h3 id="current-playlist">Liked Songs</h3>
+      
+    </div>
+
+    
+
+    
+  </div>
+
+  <h1>Your Playlist Mood Breakdown</h1>
+
+
+  <div class='piechart-holder'>
     <!-- Change viewbox to whatever you want, e.g., '0 0 1000 6000' This determines your aspect ratio and coordinate system -->    
     <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <svg id='vis-svg-1'
-      preserveAspectRatio='xMidYMid meet' class='vis-svg' viewBox='0 0 1000 1000' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-      
-      
-      <text x='30%' y='35%' text-anchor='middle'>A</text>
-      <text x='70%' y='35%' text-anchor='middle'>B</text>
-      <rect x='20%' y='40%' width='20%' height='20%' fill='yellow'></rect>
-      <circle cx='70%' cy='50%' r='10%' fill='blue'></circle>
-      
-      
-    <!-- Don't delete the closing tag! -->
-    </svg>
+    <div id='piechartLiked'></div>
+    <div id='piechartHosting'> </div>
+    <div id='piechartAlternative'> </div>
+    <div id='piechartAccoustic'> </div>
+    <!-- <div class='piechart-holder' id='piecharts'></div> -->
+    <!-- <div class='piechartlegend-holder' id='piechartlegend'></div> -->
+  </div>
+
+  <div class='piechartlegend-holder'>
+    <svg id='piechartLegend' height=100 width=700></svg>
   </div>
   
   <!-- Further writeup -->
-  <div class = 'content-column'>
+  <div class = 'content-column2'>
 
     <h1>Demo Video</h1>
     
-    <p>Embed an MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</p>
     
-    <video controls width='100%'>
-      <source src='http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4' type='video/mp4'>
+    
+    <video id = 'demo-video' controls width='100%'>
+      <source src='data/demo_video.mp4' type='video/mp4'>
       <p>Your browser doesn't support HTML5 video. Here is
-       a <a href='http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4'>link to the video</a> instead.</p>
+       a <a href='data/demo_video.mp4'>link to the video</a> instead.</p>
     </video>
+      <h1>Visualization explanation</h1>
 
-    <h1>Visualization explanation</h1>
-    
-    <p>Replace with a brief explanation (can be copied from the paper) and linked presentation slides.</p>
-    
-    <h1>Acknowledgments</h1>
+      <p>
+        Our visualizations consist of a table, a radar chart, and a collection of donut charts. All of these visualizations come 
+        together to create an informative experience that allows a user to better understand their personal music data. The table is 
+        accompanied by a playlist bar and a mood bar that allows the user to select which collection of songs they wish the table to 
+        display and whether or not they want to filter by mood. Once a playlist is selected, the table then shows all of the songs 
+        currently contained in that playlist. The table is scrollable and selectable. When no songs have been selected, the radar chart 
+        to the right of the table shows the metrics of the entire playlist averaged together. When a user starts to select songs, the 
+        radar chart changes to show only the metric averages of the highlighted songs instead. The label under the radar chart shows 
+        which playlist the table and the chart are currently displaying data for.
+      </p>
+      <p>
+        The radar chart allows for a user to better visualize the patterns in their music. The metrics the radar chart displays are a song’s 
+        danceability, valence, liveness, popularity, acousticness, spechiness, and energy. This radar chart is linked to the table. While 
+        nothing in the radar chart is selectable, it changes when the items in the table are selected. This allows for an easy and intuitive 
+        way for a user to view their playlist metrics. To view in more detail, you can hover over one of the points in the radar chart to view 
+        the exact percentage of that metric.
+      </p>
+      <p>
+      Our last visualization is a collection of donut charts below the other two visualizations. There is a separate donut chart for each 
+      playlist a user has. The purpose of these is to allow the user to visualize the mood distribution in all of the songs they have for 
+      each of their playlists. To gather more specific data, you can hover over any color in one chart to view the exact number of songs per 
+      mood. Otherwise, the default view shows the total number of songs contained in that particular playlist. There is a legend below the 
+      charts that shows what color represents each mood. We changed our initial approach of using pie charts to using donut charts instead 
+      because we believed that it allowed for more information to be conveyed at once. Now with the donut charts, we are able to display the 
+      number of songs automatically while still having an accurate display of the distribution of every mood present in a playlist. 
+      </p>
+      <p>
+      The pie charts don’t link to the other two visualizations because we believed that this would create too much confusion. However, 
+      looking at all of the visualizations together, it becomes a very holistic and efficient way for a user to come and understand their 
+      personal music data at a glance. There is also enough flexibility, allowing users to choose which songs they wish to see the metrics 
+      of and what music moods they want the details of.
+      </p>
 
-    <p>
-      List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.
-    </p>
+      <p><a href='https://docs.google.com/presentation/d/1XSr41ZIq_0qIlHw9R1enu7kIf7J96fm3NfXDujFPHnQ/edit?usp=sharing'>Google Slides Presentation</a></p>
+    
+      <h1>Acknowledgments</h1>
+
+      <p>
+        List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.
+      </p>
 
     <ul>
       <li><a href='https://d3js.org/'>
@@ -103,11 +225,35 @@
         Pure CSS responsive 'Fork me on GitHub' ribbon</a>
         by Chris Heilmann is used to create the banner that links back to the source code repository.
       </li>
+      <li><a href=' https://developer.spotify.com/documentation/web-api/'>
+        The Spotify Web API</a>
+        was used to gather and understand our personal music data and view the metrics.
+      </li>
+      <li><a href='https://github.com/plamere/spotipy'>
+        SpotiPy Library</a>
+        is a Python library used to help analyze data from the Spotify Web API.
+      </li>
+      <li><a href='http://bl.ocks.org/nbremer/6506614'>
+        Radar Chart Example</a>
+        by Nadieh Bremer was used to understand how to create the radar chart.
+      </li>
     </ul>
   </div>
   
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src='lib/d3.v6.1.1/d3.min.js'></script>
+  <script src='js/piechartlegend.js'></script>
   <script src='js/visualization.js'></script>
+  <script src='js/piechartLiked.js'></script>
+  <script src='js/piechartHosting.js'></script>
+  <script src='js/piechartAlternative.js'></script>
+  <script src='js/piechartAccoustic.js'></script>
+  <script src='js/table.js'></script>
+  <script src='js/evaluationMethods.js'></script>
+  
+  <!-- Keshav test scripts  -->
+  <script src='js/radarmapLiked.js'></script>
+  <script src='js/radarscript.js'></script>
+  <!-- Keshav test scripts end  -->
 </body>
 </html>
